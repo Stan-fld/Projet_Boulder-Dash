@@ -30,12 +30,14 @@ class DBProperties extends Properties {
 	private int block_y;
 	private int level;
 	private int framerate;
-	private int animationspeed;
+	private int animationSpeed;
 	/**
 	 * Instantiates a new DB properties.
 	 */
 
-	public DBProperties() {
+	private static DBProperties INSTANCE = new DBProperties();
+
+	private DBProperties() {
 		InputStream inputStream;
 
 		inputStream = this.getClass().getClassLoader().getResourceAsStream(DBProperties.PROPERTIES_FILE_NAME);
@@ -52,10 +54,17 @@ class DBProperties extends Properties {
 			this.setBlock_x(Integer.parseInt(this.getProperty("block_x")));
 			this.setBlock_y(Integer.parseInt(this.getProperty("block_y")));
 			this.setLevel(Integer.parseInt(this.getProperty("level")));
-			this.setAnimationspeed(Integer.parseInt(this.getProperty("animationspeed")));
+			this.setAnimationSpeed(Integer.parseInt(this.getProperty("animationSpeed")));
 			this.setFramerate(Integer.parseInt(this.getProperty("framerate")));
 
 		}
+	}
+
+
+	public static DBProperties getInstance()
+	{
+		return INSTANCE;
+
 	}
 
 	public int getBlock_x() {
@@ -90,14 +99,14 @@ class DBProperties extends Properties {
 		this.level = level;
 	}
 
-	public int getAnimationspeed() {
-		return animationspeed;
+	public int getAnimationSpeed() {
+		return animationSpeed;
 	}
 
 
 
-	public void setAnimationspeed(int animationspeed) {
-		this.animationspeed = animationspeed;
+	public void setAnimationSpeed(int animationSpeed) {
+		this.animationSpeed = animationSpeed;
 	}
 
 	/**
