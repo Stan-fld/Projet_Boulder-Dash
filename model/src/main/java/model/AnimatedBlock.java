@@ -1,17 +1,23 @@
-package entity;
+package model;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public abstract class AnimatedBlock extends Block {
     private int maxRow;
     private int maxCol;
+    private int animationRow;
+    private int animationCol;
+    private static final int ANIMATION_SPEED = 10;
+    private int animationTick;
+
 
     public int getAnimationRow() {
         return animationRow;
     }
 
     public void setAnimationRow(int animationRow) {
-        if (animationRow > this.maxRow)
+        if (animationRow >= this.maxRow)
         {
             this.animationRow = 0;
         }
@@ -37,10 +43,7 @@ public abstract class AnimatedBlock extends Block {
         this.animationTick = animationTick;
     }
 
-    private int animationRow;
-    private int animationCol;
-    private static final int ANIMATION_SPEED = 10;
-    private int animationTick;
+
 
     protected AnimatedBlock()
     {
@@ -49,10 +52,17 @@ public abstract class AnimatedBlock extends Block {
 
     }
 
+    public AnimatedBlock(BufferedImage img, int maxRow, int maxCol)
+    {
+        super(0, 0, img);
+        init(maxRow, maxCol);
+
+    }
+
     public AnimatedBlock(int x, int y, BufferedImage img, int maxRow, int maxCol)
     {
-        super();
-        init(0, 0);
+        super(x, y, img);
+        init(maxRow, maxCol);
 
     }
 
@@ -60,8 +70,8 @@ public abstract class AnimatedBlock extends Block {
     {
         this.maxRow = maxRow;
         this.maxCol = maxCol;
-        this.setAnimationCol(0);
-        this.setAnimationRow(0);
+        this.setAnimationCol(maxCol);
+        this.setAnimationRow(maxRow);
         animationTick = 0;
     }
 
@@ -70,6 +80,7 @@ public abstract class AnimatedBlock extends Block {
         this.animationTick++;
         if (this.animationTick >= ANIMATION_SPEED)
         {
+            this.animationTick = 0;
             this.animationCol = (this.animationCol + 1) % maxCol;
         }
     }
@@ -79,8 +90,14 @@ public abstract class AnimatedBlock extends Block {
         this.animationTick++;
         if (this.animationTick >= ANIMATION_SPEED)
         {
+            this.animationTick = 0;
             this.animationRow = (this.animationRow + 1) % maxRow;
         }
+    }
+
+    public void print(Graphics g)
+    {
+        g.drawImage(this.getImage().getSubimage(16 * this.animationCol, 16 * this.animationRow, 16, 16), (int) this.getX(), (int) this.getY(), null);
     }
 
 }

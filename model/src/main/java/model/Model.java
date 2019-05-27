@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.*;
 import java.sql.SQLException;
 import java.util.Observable;
 
@@ -15,14 +16,22 @@ public final class Model extends Observable implements IModel {
 
 	/** The helloWorld. */
 	private HelloWorld helloWorld;
+	private Rock test;
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
 		this.helloWorld = new HelloWorld();
+		this.test = new Rock();
 	}
 
+	public void update()
+	{
+		this.test.updateAnimationRow();
+		this.setChanged();
+		this.notifyObservers();
+	}
 	/**
      * Gets the hello world.
      *
@@ -67,6 +76,11 @@ public final class Model extends Observable implements IModel {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public void print(Graphics g)
+	{
+		test.print(g);
 	}
 
 	/**

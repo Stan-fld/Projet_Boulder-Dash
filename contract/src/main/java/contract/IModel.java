@@ -1,5 +1,6 @@
 package contract;
 
+import java.awt.*;
 import java.util.Observable;
 
 import entity.HelloWorld;
@@ -17,7 +18,7 @@ public interface IModel {
 	 * @return the helloworld entity
 	 */
 	HelloWorld getHelloWorld();
-
+    void print(Graphics g);
 	/**
 	 * Load the message.
 	 *

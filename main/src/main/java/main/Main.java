@@ -28,8 +28,22 @@ public abstract class Main {
         final Controller controller = new Controller(view, model);
         view.setController(controller);
 
+
         controller.control();
         controller.orderPerform(ControllerOrder.English);
+
+
+        while (true)
+        {
+            try {
+
+                Thread.sleep(100);
+            }catch (InterruptedException e)
+            {
+                System.out.println("test");
+            }
+            model.update();
+        }
     }
 }
 

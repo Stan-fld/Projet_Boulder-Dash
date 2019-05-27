@@ -31,7 +31,7 @@ public class SpriteAsset {
     }
 
     public BufferedImage getSprite(int x, int y, int nRow, int nCol) {
-        return img.getSubimage(x, y, nRow * 16, nCol * 16);
+        return img.getSubimage(x, y, nCol * 16, nRow * 16);
     }
     public BufferedImage getSprite(int x, int y) {
         return getSprite(x, y, 1, 1);

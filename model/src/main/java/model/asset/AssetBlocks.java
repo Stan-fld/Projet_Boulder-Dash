@@ -18,7 +18,7 @@ public class AssetBlocks extends SpriteAsset {
 
     private AssetBlocks()
     {
-        super("assets/Blocks.png");
+        super("D:\\Dev\\Java\\Projet_Boulder-Dash\\model\\src\\main\\resources\\assets\\Blocks.png");
     }
 
 
