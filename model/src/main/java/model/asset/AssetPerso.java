@@ -15,6 +15,10 @@ public class AssetPerso extends SpriteAsset {
         return ourInstance;
     }
 
+    /**
+     *
+     *
+     */
     private AssetPerso()
     {
         super("assets/Perso.png");

@@ -30,6 +30,16 @@ public class SpriteAsset {
         maxCol = img.getWidth() / largeur;
     }
 
+    /**
+     * Gets the sprite
+     * @param x
+     * @param y
+     * X and Y are the coordinates to take the sprite on the sheet
+     * @param nRow
+     * @param nCol
+     * nRow and nCol are the coordinates to know until how many pixels we cut the sprite
+     * @return the sprite asked
+     */
     public BufferedImage getSprite(int x, int y, int nRow, int nCol) {
         return img.getSubimage(x, y, nCol * 16, nRow * 16);
     }

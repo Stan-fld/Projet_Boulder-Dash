@@ -25,11 +25,16 @@ class DBProperties extends Properties {
 
 	/** The password. */
 	private String							password							= "";
-
+	/** The block length*/
 	private int block_x ;
+	/** The block heigth*/
 	private int block_y;
+	/** The level*/
 	private int level;
+	/** The framerate*/
 	private int framerate;
+	/** The ingame animation speed*/
+	private int animationspeed;
 	private int animationSpeed;
 	/**
 	 * Instantiates a new DB properties.
@@ -54,7 +59,7 @@ class DBProperties extends Properties {
 			this.setBlock_x(Integer.parseInt(this.getProperty("block_x")));
 			this.setBlock_y(Integer.parseInt(this.getProperty("block_y")));
 			this.setLevel(Integer.parseInt(this.getProperty("level")));
-			this.setAnimationSpeed(Integer.parseInt(this.getProperty("animationSpeed")));
+			this.setAnimationspeed(Integer.parseInt(this.getProperty("animationspeed")));
 			this.setFramerate(Integer.parseInt(this.getProperty("framerate")));
 
 		}
@@ -66,6 +71,13 @@ class DBProperties extends Properties {
 		return INSTANCE;
 
 	}
+
+	/**
+	 * Gets the block length
+	 *
+	 *
+	 * @return The block length
+	 */
 
 	public int getBlock_x() {
 		return block_x;
@@ -96,14 +108,25 @@ class DBProperties extends Properties {
 	}
 
 	public void setLevel(int level) {
-		this.level = level;
-	}
+        this.level = level;
+    }
 
+    /**
+     * Gets the animation speed
+     *
+     * @return the animation speed
+     */
 	public int getAnimationSpeed() {
-		return animationSpeed;
-	}
+        return animationSpeed;
+    }
 
 
+	/**
+	 * Sets the animation speed.
+	 *
+	 * @param animationspeed
+	 * 					the new animation speed
+	 */
 
 	public void setAnimationSpeed(int animationSpeed) {
 		this.animationSpeed = animationSpeed;
