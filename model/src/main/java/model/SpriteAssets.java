@@ -11,16 +11,13 @@ public class SpriteAssets {
 
         public static final int largeur=16,hauteur=16;
         private BufferedImage img;
-        {
+
+        public void init() {
             try {
-                img = ImageIO.read(new File("C:\\Users\\vzonz\\OneDrive\\Documents\\Cours\\A1\\Projet\\Projet UML Java 2\\Sprites\\74359.png"));
+                img = ImageIO.read(new File("assets/74359.png"));
             } catch (IOException e) {
                 System.out.println("le fichier n'existe pas");
             }
-        }
-
-        public void init() {
-
         }
 
     public BufferedImage Decoupage(int x, int y, int nRow, int nCol)
@@ -29,16 +26,5 @@ public class SpriteAssets {
     }
 
 }
-/* public class DecoupageSprite
-{
-    private BufferedImage image;
-    public DecoupageSprite (BufferedImage image)
-    {
-        this.image=image;
-    }
 
-}
-
-
- */
 
