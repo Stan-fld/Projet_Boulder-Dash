@@ -1,6 +1,10 @@
 package model.asset;
 
-
+/**
+ * The AssetPerso class
+ *
+ * @author Kevin
+ */
 //Singleton contenant le sprite des blocks
 public class AssetPerso extends SpriteAsset {
 
