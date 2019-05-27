@@ -1,9 +1,14 @@
 package model.asset;
 
+/**
+ * The class AssetBlocks
+ *
+ * It is a singleton which contains blocks
+ *
+ * @author Kevin
+ */
 
-//Singleton contenant le sprite des blocks
 public class AssetBlocks extends SpriteAsset {
-
 
     private static AssetBlocks ourInstance = new AssetBlocks();
 

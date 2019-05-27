@@ -7,6 +7,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * The class SpriteAsset
+ *
+ * @author Valentin
+ */
 public class SpriteAsset {
 
     public static final int largeur = 16, hauteur = 16;
