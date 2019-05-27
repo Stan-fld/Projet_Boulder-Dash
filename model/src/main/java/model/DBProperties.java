@@ -25,16 +25,13 @@ class DBProperties extends Properties {
 
 	/** The password. */
 	private String							password							= "";
-	/** The block length*/
-	private int block_x ;
+    /** The block length*/
+	private int sizeX;
 	/** The block heigth*/
-	private int block_y;
+	private int sizeY;
 	/** The level*/
 	private int level;
-	/** The framerate*/
 	private int framerate;
-	/** The ingame animation speed*/
-	private int animationspeed;
 	private int animationSpeed;
 	/**
 	 * Instantiates a new DB properties.
@@ -56,43 +53,43 @@ class DBProperties extends Properties {
 			this.setUrl(this.getProperty("url"));
 			this.setLogin(this.getProperty("login"));
 			this.setPassword(this.getProperty("password"));
-			this.setBlock_x(Integer.parseInt(this.getProperty("block_x")));
-			this.setBlock_y(Integer.parseInt(this.getProperty("block_y")));
+			this.setSizeX(Integer.parseInt(this.getProperty("sizeX")));
+			this.setSizeY(Integer.parseInt(this.getProperty("sizeY")));
 			this.setLevel(Integer.parseInt(this.getProperty("level")));
-			this.setAnimationspeed(Integer.parseInt(this.getProperty("animationspeed")));
+			this.setAnimationSpeed(Integer.parseInt(this.getProperty("animationSpeed")));
 			this.setFramerate(Integer.parseInt(this.getProperty("framerate")));
 
 		}
 	}
 
 
-	public static DBProperties getInstance()
-	{
-		return INSTANCE;
+	public static DBProperties getInstance() {
+        return INSTANCE;
 
+    }
+
+
+    /**
+     * Gets the block length
+     *
+     *
+     * @return The block length
+     */
+
+	public int getSizeX() {
+        return sizeX;
+    }
+
+	private void setSizeX(int sizeX) {
+		this.sizeX = sizeX;
 	}
 
-	/**
-	 * Gets the block length
-	 *
-	 *
-	 * @return The block length
-	 */
-
-	public int getBlock_x() {
-		return block_x;
+	public int getSizeY() {
+		return sizeY;
 	}
 
-	public void setBlock_x(int block_x) {
-		this.block_x = block_x;
-	}
-
-	public int getBlock_y() {
-		return block_y;
-	}
-
-	public void setBlock_y(int block_y) {
-		this.block_y = block_y;
+	private void setSizeY(int sizeY) {
+		this.sizeY = sizeY;
 	}
 
 	public int getFramerate() {
@@ -107,9 +104,9 @@ class DBProperties extends Properties {
 		return level;
 	}
 
-	public void setLevel(int level) {
-        this.level = level;
-    }
+	private void setLevel(int level) {
+		this.level = level;
+	}
 
     /**
      * Gets the animation speed
@@ -124,11 +121,11 @@ class DBProperties extends Properties {
 	/**
 	 * Sets the animation speed.
 	 *
-	 * @param animationspeed
+	 * @param animationSpeed
 	 * 					the new animation speed
 	 */
 
-	public void setAnimationSpeed(int animationSpeed) {
+	private void setAnimationSpeed(int animationSpeed) {
 		this.animationSpeed = animationSpeed;
 	}
 
