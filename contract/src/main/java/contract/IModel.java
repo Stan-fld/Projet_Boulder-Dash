@@ -8,15 +8,15 @@ import entity.Level;
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
- * @version $Id: $Id
+ * @author Valentin
+ *
  */
 public interface IModel {
 
 	/**
-	 * Gets the hello world.
+	 * Gets the level.
 	 *
-	 * @return the helloworld entity
+	 * @return the getlevel
 	 */
 	public Level getLevel();
 

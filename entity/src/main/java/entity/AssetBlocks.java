@@ -23,7 +23,7 @@ public class AssetBlocks extends SpriteAsset {
 
     private AssetBlocks()
     {
-        super("D:\\Dev\\Java\\Projet_Boulder-Dash\\model\\src\\main\\resources\\assets\\Blocks.png");
+        super("C:\\Users\\vzonz\\OneDrive\\Documents\\Cours\\A1\\Projet\\Projet UML Java 2\\Projet_Boulder-Dash\\model\\src\\main\\resources\\assets\\Blocks.png");
     }
 
 

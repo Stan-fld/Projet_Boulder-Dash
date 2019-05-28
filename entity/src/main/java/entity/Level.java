@@ -3,6 +3,11 @@ package entity;
 import entity.Block;
 import entity.GameProperties;
 
+/**
+ * The Level class
+ *
+ * @author Kevin
+ */
 public class Level {
     private Block[][] map;
     private int tailleMapX;
@@ -16,6 +21,9 @@ public class Level {
 
     public Level(String s)
     {
+        System.out.println(
+                s
+        );
         int x = 0, y = 0;
         for (int i = 0; i < s.length(); i++)
         {

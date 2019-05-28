@@ -11,12 +11,11 @@ import entity.Rock;
 /**
  * The Class Model.
  *
- * @author Jean-Aymeric Diet
- * @version $Id: $Id
+ * @author Valentin
  */
 public final class Model extends Observable implements IModel {
 
-	/** The helloWorld. */
+	/** The level */
 	private Level level;
 
 	private Rock test;
@@ -41,7 +40,7 @@ public final class Model extends Observable implements IModel {
 	/**
 	 * Gets the level.
 	 *
-	 * @return the hello world
+	 * @return the level
 	 */
 	/*
 	 * (non-Javadoc)
@@ -53,10 +52,10 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Sets the hello world.
+     * Sets the level
      *
      * @param level
-     *            the new hello world
+     *            the new level
      */
 	private void setLevel(final Level level) {
 		this.level = level;
@@ -67,7 +66,7 @@ public final class Model extends Observable implements IModel {
 	/**
 	 * {@inheritDoc}
 	 *
-	 * Load hello world.
+	 * Load the level
 	 */
 	/*
 	 * (non-Javadoc)

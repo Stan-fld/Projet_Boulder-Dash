@@ -2,7 +2,6 @@ package model;
 
 
 import entity.Level;
-import entity.LevelSelect;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -10,10 +9,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
+ *The DAOLevelSelect class
  *
+ * It returns the result from the database into a level object
  *
- *
+ * @author Valentin
  */
+
 class DAOLevelSelect extends DAOEntity<Level>
 {
 
