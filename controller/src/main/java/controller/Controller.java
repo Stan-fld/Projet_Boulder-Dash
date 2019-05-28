@@ -89,6 +89,25 @@ public final class Controller implements IController {
 			default:
 				break;
 		}
+		/*
+			public void orderPerform(final ControllerOrder controllerOrder) {
+		switch (controllerOrder) {
+			case Up:
+				this.model.moveChar("UP");
+				break;
+			case Down:
+				this.model.moveChar("DOWN");
+				break;
+			case Left:
+				this.model.moveChar("LEFT");
+				break;
+			case Right:
+				this.model.moveChar("RIGHT");
+				break;
+			default:
+				break;
+		}
+		 */
 	}
 
 }
