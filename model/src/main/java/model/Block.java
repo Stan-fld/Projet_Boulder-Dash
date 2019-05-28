@@ -1,15 +1,25 @@
 package model;
 
+import contract.IBlock;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public abstract class Block extends Rectangle {
+public abstract class Block extends Rectangle implements IBlock {
 
     private BufferedImage image;
 
+    public static int getSizeX() {
+        return sizeX;
+    }
+
+    public static int getSizeY() {
+        return sizeY;
+    }
+
     //Ecriture de la taille des blocks
-    private static final int sizeX = 16;
-    private static final int sizeY = 16;
+    private static int sizeX;
+    private static int sizeY;
 
     protected Block()
     {
@@ -34,6 +44,9 @@ public abstract class Block extends Rectangle {
     private void init(BufferedImage img)
     {
         this.setImage(img);
+        GameProperties properties = GameProperties.getInstance();
+        sizeX = properties.getSizeX();
+        sizeY = properties.getSizeY();
     }
 
 
@@ -55,6 +68,11 @@ public abstract class Block extends Rectangle {
 
     public void print(Graphics g)
     {
-        g.drawImage(this.getImage().getSubimage(0, 0,(int) this.getWidth(), (int) this.getHeight()), (int) this.getX(), (int) this.getY(),null);
+        g.drawImage(this.getImage(), (int) this.getX(), (int) this.getY(),null);
+    }
+
+    @Override
+    public void update() {
+
     }
 }

@@ -1,15 +1,16 @@
 package model;
 
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * The Class DBProperties.
+ * The Class GameProperties.
  *
  * @author Jean-Aymeric Diet
  */
-class DBProperties extends Properties {
+public class GameProperties extends Properties {
 
 	/** The Constant serialVersionUID. */
 	private static final long		serialVersionUID			= 5289057445894568927L;
@@ -33,16 +34,26 @@ class DBProperties extends Properties {
 	private int level;
 	private int framerate;
 	private int animationSpeed;
+
+	public int getBlockScale() {
+		return blockScale;
+	}
+
+	private void setBlockScale(int blockScale) {
+		this.blockScale = blockScale;
+	}
+
+	private int blockScale;
 	/**
 	 * Instantiates a new DB properties.
 	 */
 
-	private static DBProperties INSTANCE = new DBProperties();
+	private static GameProperties INSTANCE = new GameProperties();
 
-	private DBProperties() {
+	private GameProperties() {
 		InputStream inputStream;
 
-		inputStream = this.getClass().getClassLoader().getResourceAsStream(DBProperties.PROPERTIES_FILE_NAME);
+		inputStream = this.getClass().getClassLoader().getResourceAsStream(GameProperties.PROPERTIES_FILE_NAME);
 
 		if (inputStream != null) {
 			try {
@@ -58,12 +69,13 @@ class DBProperties extends Properties {
 			this.setLevel(Integer.parseInt(this.getProperty("level")));
 			this.setAnimationSpeed(Integer.parseInt(this.getProperty("animationSpeed")));
 			this.setFramerate(Integer.parseInt(this.getProperty("framerate")));
+			this.setBlockScale(Integer.parseInt(this.getProperty("blockScale")));
 
 		}
 	}
 
 
-	public static DBProperties getInstance() {
+	public static GameProperties getInstance() {
         return INSTANCE;
 
     }

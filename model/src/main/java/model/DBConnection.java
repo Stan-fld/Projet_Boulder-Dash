@@ -41,17 +41,16 @@ final class DBConnection {
 	 * @return the boolean
 	 */
 	private Boolean open() {
-		final DBProperties dbProperties = DBProperties.getInstance();
+		final GameProperties gameProperties = GameProperties.getInstance();
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			this.connection = DriverManager.getConnection(dbProperties.getUrl(), dbProperties.getLogin(), dbProperties.getPassword());
+			this.connection = DriverManager.getConnection(gameProperties.getUrl(), gameProperties.getLogin(), gameProperties.getPassword());
 		} catch (final ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
-		return true;
-	}
+		return true;	}
 
 	/**
 	 * Gets the connection.

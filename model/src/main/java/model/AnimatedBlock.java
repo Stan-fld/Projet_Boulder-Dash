@@ -8,7 +8,7 @@ public abstract class AnimatedBlock extends Block {
     private int maxCol;
     private int animationRow;
     private int animationCol;
-    private static final int ANIMATION_SPEED = 10;
+    private static int animationSpeed;
     private int animationTick;
 
 
@@ -32,7 +32,14 @@ public abstract class AnimatedBlock extends Block {
     }
 
     public void setAnimationCol(int animationCol) {
-        this.animationCol = animationCol;
+        if (animationCol >= this.maxCol)
+        {
+            this.animationCol = 0;
+        }
+        else
+        {
+            this.animationCol = animationCol;
+        }
     }
 
     public int getAnimationTick() {
@@ -52,33 +59,34 @@ public abstract class AnimatedBlock extends Block {
 
     }
 
-    public AnimatedBlock(BufferedImage img, int maxRow, int maxCol)
+    public AnimatedBlock(BufferedImage img, int maxCol, int maxRow)
     {
         super(0, 0, img);
-        init(maxRow, maxCol);
+        init(maxCol, maxRow);
 
     }
 
-    public AnimatedBlock(int x, int y, BufferedImage img, int maxRow, int maxCol)
+    public AnimatedBlock(int x, int y, BufferedImage img, int maxCol, int maxRow)
     {
         super(x, y, img);
-        init(maxRow, maxCol);
+        init(maxCol, maxRow);
 
     }
 
-    private void init(int maxRow, int maxCol)
+    private void init(int maxCol, int maxRow)
     {
         this.maxRow = maxRow;
         this.maxCol = maxCol;
-        this.setAnimationCol(maxCol);
-        this.setAnimationRow(maxRow);
+        this.setAnimationCol(0);
+        this.setAnimationRow(0);
         animationTick = 0;
+        animationSpeed = GameProperties.getInstance().getAnimationSpeed();
     }
 
     public void updateAnimationCol()
     {
         this.animationTick++;
-        if (this.animationTick >= ANIMATION_SPEED)
+        if (this.animationTick >= animationSpeed)
         {
             this.animationTick = 0;
             this.animationCol = (this.animationCol + 1) % maxCol;
@@ -88,7 +96,7 @@ public abstract class AnimatedBlock extends Block {
     public void updateAnimationRow()
     {
         this.animationTick++;
-        if (this.animationTick >= ANIMATION_SPEED)
+        if (this.animationTick >= animationSpeed)
         {
             this.animationTick = 0;
             this.animationRow = (this.animationRow + 1) % maxRow;
@@ -97,7 +105,8 @@ public abstract class AnimatedBlock extends Block {
 
     public void print(Graphics g)
     {
-        g.drawImage(this.getImage().getSubimage(16 * this.animationCol, 16 * this.animationRow, 16, 16), (int) this.getX(), (int) this.getY(), null);
+        g.drawImage(this.getImage().getSubimage(getSizeX() * this.animationCol, getSizeY() * this.animationRow,
+                    getSizeX(), getSizeY()), (int) this.getX(), (int) this.getY(), getSizeX() * 2, 32,null);
     }
 
 }
