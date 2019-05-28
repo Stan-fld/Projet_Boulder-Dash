@@ -11,6 +11,10 @@ public class Level {
         init();
     }
 
+    public Level(String s)
+    {
+
+    }
 
     private void init()
     {
