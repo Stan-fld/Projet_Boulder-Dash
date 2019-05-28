@@ -23,7 +23,7 @@ public final class Model extends Observable implements IModel {
 	 */
 	public Model() {
 		this.helloWorld = new HelloWorld();
-		this.test = new Rock();
+		this.test = new Rock(1,1);
 	}
 
 	public void update()

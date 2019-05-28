@@ -1,9 +1,12 @@
 package model;
 
+import com.sun.javafx.scene.traversal.Direction;
+import contract.IBlock;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public abstract class Block extends Rectangle {
+public abstract class Block extends Rectangle{ //implements IBlock
 
     private BufferedImage image;
 

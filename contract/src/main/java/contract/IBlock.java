@@ -6,6 +6,6 @@ package contract;
 public interface IBlock
 {
     public void action ();
-public void print();
+    public void print();
 
 }

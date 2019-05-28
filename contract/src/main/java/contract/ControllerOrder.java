@@ -3,16 +3,18 @@ package contract;
 /**
  * The Enum ControllerOrder.
  *
- * @author Jean-Aymeric Diet
+ * It will be used to move the character
+ *
+ * @author Valentin
  */
 public enum ControllerOrder {
 
-	/** The English. */
-	English,
-	/** The French. */
-	Francais,
-	/** The Deutch. */
-	Deutsch,
-	/** The Indonesia. */
-	Indonesia
+	/** Up. */
+	Up,
+	/** Down. */
+	Down,
+	/** Left. */
+	Left,
+	/** Right. */
+	Right
 }

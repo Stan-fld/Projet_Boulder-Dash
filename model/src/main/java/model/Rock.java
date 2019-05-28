@@ -9,4 +9,5 @@ public class Rock extends AnimatedBlock {
     {
         super(x, y, AssetBlocks.getInstance().getSprite(3 * 16, 16, 3, 1), 3, 0);
     }
+
 }

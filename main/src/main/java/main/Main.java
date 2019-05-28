@@ -30,14 +30,14 @@ public abstract class Main {
 
 
         controller.control();
-        controller.orderPerform(ControllerOrder.English);
+        //controller.orderPerform(ControllerOrder.);
 
 
         while (true)
         {
             try {
 
-                Thread.sleep(100);
+                Thread.sleep(10);
             }catch (InterruptedException e)
             {
                 System.out.println("test");
