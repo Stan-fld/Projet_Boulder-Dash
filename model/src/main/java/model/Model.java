@@ -17,6 +17,8 @@ public final class Model extends Observable implements IModel {
 
 	/** The helloWorld. */
 	private HelloWorld helloWorld;
+	private Level level;
+
 	private Rock test;
 
 	/**
@@ -37,7 +39,7 @@ public final class Model extends Observable implements IModel {
 		this.notifyObservers();
 	}
 	/**
-	 * Gets the hello world.
+	 * Gets the level.
 	 *
 	 * @return the hello world
 	 */
@@ -46,18 +48,18 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage()
 	 */
-	public HelloWorld getHelloWorld() {
-		return this.helloWorld;
+	public Level getLevel() {
+		return this.level;
 	}
 
 	/**
      * Sets the hello world.
      *
-     * @param helloWorld
+     * @param level
      *            the new hello world
      */
-	private void setHelloWorld(final HelloWorld helloWorld) {
-		this.helloWorld = helloWorld;
+	private void setLevel(final Level level) {
+		this.level = level;
 		this.setChanged();
 		this.notifyObservers();
 	}
@@ -72,10 +74,10 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadHelloWorld(final String code) {
+	public void loadLevel(final String code) {
 		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setHelloWorld(daoHelloWorld.find(code));
+			final DAOLevelSelect daoLevelSelect = new DAOLevelSelect(DBConnection.getInstance().getConnection());
+			this.setLevel(daoLevelSelect.find(code));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
