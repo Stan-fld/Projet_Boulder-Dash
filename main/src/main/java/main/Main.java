@@ -30,7 +30,7 @@ public abstract class Main {
 
 
         controller.control();
-        controller.orderPerform(ControllerOrder.English);
+        //controller.orderPerform(ControllerOrder.);
 
 
         while (true)

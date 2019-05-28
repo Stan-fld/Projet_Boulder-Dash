@@ -7,8 +7,7 @@ import java.awt.*;
  */
 public interface IBlock
 {
-    void update();
- //   public void action();
-    void print(Graphics g);
+    public void action ();
+    public void print();
 
 }
