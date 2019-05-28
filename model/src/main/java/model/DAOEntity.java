@@ -23,7 +23,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *
 	 * @param connection
 	 *          the connection
-	 * @throws SQLException
+	 * @throws java.sql.SQLException
 	 *           the SQL exception
 	 */
 	public DAOEntity(final Connection connection) throws SQLException {
@@ -44,7 +44,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *
 	 * @param entity
 	 *          the entity
-	 * @return true, if successful
+	 * @return a boolean.
 	 */
 	public abstract boolean create(E entity);
 
@@ -53,7 +53,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *
 	 * @param entity
 	 *          the entity
-	 * @return true, if successful
+	 * @return a boolean.
 	 */
 	public abstract boolean delete(E entity);
 
@@ -62,7 +62,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *
 	 * @param entity
 	 *          the entity
-	 * @return true, if successful
+	 * @return a boolean.
 	 */
 	public abstract boolean update(E entity);
 

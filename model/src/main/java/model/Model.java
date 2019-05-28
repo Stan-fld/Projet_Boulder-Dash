@@ -11,6 +11,7 @@ import entity.HelloWorld;
  * The Class Model.
  *
  * @author Jean-Aymeric Diet
+ * @version $Id: $Id
  */
 public final class Model extends Observable implements IModel {
 
@@ -26,6 +27,9 @@ public final class Model extends Observable implements IModel {
 		this.test = new Rock(0, 0);
 	}
 
+	/**
+	 * <p>update.</p>
+	 */
 	public void update()
 	{
 		this.test.updateAnimationRow();
@@ -33,10 +37,10 @@ public final class Model extends Observable implements IModel {
 		this.notifyObservers();
 	}
 	/**
-     * Gets the hello world.
-     *
-     * @return the hello world
-     */
+	 * Gets the hello world.
+	 *
+	 * @return the hello world
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -59,11 +63,10 @@ public final class Model extends Observable implements IModel {
 	}
 
 	/**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
+	 * {@inheritDoc}
+	 *
+	 * Load hello world.
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -78,16 +81,17 @@ public final class Model extends Observable implements IModel {
 		}
 	}
 
+	/** {@inheritDoc} */
 	public void print(Graphics g)
 	{
 		test.print(g);
 	}
 
 	/**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
+	 * Gets the observable.
+	 *
+	 * @return the observable
+	 */
 	/*
 	 * (non-Javadoc)
 	 *

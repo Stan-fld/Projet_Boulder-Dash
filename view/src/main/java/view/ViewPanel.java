@@ -53,6 +53,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @see java.util.Observer#update(java.util.Observable, java.lang.Object)
 	 */
+	/** {@inheritDoc} */
 	public void update(final Observable arg0, final Object arg1) {
 		this.repaint();
 	}
@@ -62,6 +63,7 @@ class ViewPanel extends JPanel implements Observer {
 	 *
 	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	protected void paintComponent(final Graphics graphics) {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());

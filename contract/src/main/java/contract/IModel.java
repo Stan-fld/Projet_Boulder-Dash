@@ -9,6 +9,7 @@ import entity.HelloWorld;
  * The Interface IModel.
  *
  * @author Jean-Aymeric Diet
+ * @version $Id: $Id
  */
 public interface IModel {
 
@@ -18,6 +19,11 @@ public interface IModel {
 	 * @return the helloworld entity
 	 */
 	HelloWorld getHelloWorld();
+    /**
+     * <p>print.</p>
+     *
+     * @param g a {@link java.awt.Graphics} object.
+     */
     void print(Graphics g);
 	/**
 	 * Load the message.

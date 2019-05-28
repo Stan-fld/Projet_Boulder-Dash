@@ -9,6 +9,7 @@ import java.util.Properties;
  * The Class GameProperties.
  *
  * @author Jean-Aymeric Diet
+ * @version $Id: $Id
  */
 public class GameProperties extends Properties {
 
@@ -35,6 +36,11 @@ public class GameProperties extends Properties {
 	private int framerate;
 	private int animationSpeed;
 
+	/**
+	 * <p>Getter for the field <code>blockScale</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getBlockScale() {
 		return blockScale;
 	}
@@ -44,6 +50,11 @@ public class GameProperties extends Properties {
 	}
 
 	private int blockScale;
+
+
+
+	private int tailleMapX;
+	private int tailleMapY;
 	/**
 	 * Instantiates a new DB properties.
 	 */
@@ -70,24 +81,29 @@ public class GameProperties extends Properties {
 			this.setAnimationSpeed(Integer.parseInt(this.getProperty("animationSpeed")));
 			this.setFramerate(Integer.parseInt(this.getProperty("framerate")));
 			this.setBlockScale(Integer.parseInt(this.getProperty("blockScale")));
+			this.setTailleMapX(Integer.parseInt(this.getProperty("tailleMapX")));
+			this.setTailleMapY(Integer.parseInt(this.getProperty("tailleMapY")));
 
 		}
 	}
 
 
+	/**
+	 * <p>getInstance.</p>
+	 *
+	 * @return a {@link model.GameProperties} object.
+	 */
 	public static GameProperties getInstance() {
         return INSTANCE;
 
     }
 
 
-    /**
-     * Gets the block length
-     *
-     *
-     * @return The block length
-     */
-
+	/**
+	 * Gets the block length
+	 *
+	 * @return The block length
+	 */
 	public int getSizeX() {
         return sizeX;
     }
@@ -96,6 +112,11 @@ public class GameProperties extends Properties {
 		this.sizeX = sizeX;
 	}
 
+	/**
+	 * <p>Getter for the field <code>sizeY</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getSizeY() {
 		return sizeY;
 	}
@@ -104,14 +125,29 @@ public class GameProperties extends Properties {
 		this.sizeY = sizeY;
 	}
 
+	/**
+	 * <p>Getter for the field <code>framerate</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getFramerate() {
 		return framerate;
 	}
 
+	/**
+	 * <p>Setter for the field <code>framerate</code>.</p>
+	 *
+	 * @param framerate a int.
+	 */
 	public void setFramerate(int framerate) {
 		this.framerate = framerate;
 	}
 
+	/**
+	 * <p>Getter for the field <code>level</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getLevel() {
 		return level;
 	}
@@ -120,11 +156,11 @@ public class GameProperties extends Properties {
 		this.level = level;
 	}
 
-    /**
-     * Gets the animation speed
-     *
-     * @return the animation speed
-     */
+	/**
+	 * Gets the animation speed
+	 *
+	 * @return the animation speed
+	 */
 	public int getAnimationSpeed() {
         return animationSpeed;
     }
@@ -198,4 +234,19 @@ public class GameProperties extends Properties {
 		this.password = password;
 	}
 
+	public int getTailleMapX() {
+		return tailleMapX;
+	}
+
+	private void setTailleMapX(int tailleMapX) {
+		this.tailleMapX = tailleMapX;
+	}
+
+	public int getTailleMapY() {
+		return tailleMapY;
+	}
+
+	private void setTailleMapY(int tailleMapY) {
+		this.tailleMapY = tailleMapY;
+	}
 }

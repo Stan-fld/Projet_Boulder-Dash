@@ -7,6 +7,9 @@ import contract.IView;
 
 /**
  * The Class Controller.
+ *
+ * @author kevin
+ * @version $Id: $Id
  */
 public final class Controller implements IController {
 
@@ -30,8 +33,8 @@ public final class Controller implements IController {
 	}
 
 	/**
-     * Control.
-     */
+	 * Control.
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -62,11 +65,10 @@ public final class Controller implements IController {
 	}
 
 	/**
-     * Order perform.
-     *
-     * @param controllerOrder
-     *            the controller order
-     */
+	 * {@inheritDoc}
+	 *
+	 * Order perform.
+	 */
 	/*
 	 * (non-Javadoc)
 	 *

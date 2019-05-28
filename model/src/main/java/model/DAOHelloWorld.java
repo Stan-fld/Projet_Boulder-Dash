@@ -19,7 +19,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @param connection
 	 *          the connection
-	 * @throws SQLException
+	 * @throws java.sql.SQLException
 	 *           the SQL exception
 	 */
 	public DAOHelloWorld(final Connection connection) throws SQLException {
@@ -31,6 +31,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#create(model.Entity)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public boolean create(final HelloWorld entity) {
 		// Not implemented
@@ -42,6 +43,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#delete(model.Entity)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public boolean delete(final HelloWorld entity) {
 		// Not implemented
@@ -53,6 +55,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#update(model.Entity)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public boolean update(final HelloWorld entity) {
 		// Not implemented
@@ -64,6 +67,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#find(int)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public HelloWorld find(final int id) {
 		HelloWorld helloWorld = new HelloWorld();
@@ -89,6 +93,7 @@ class DAOHelloWorld extends DAOEntity<HelloWorld> {
 	 *
 	 * @see model.DAOEntity#find(java.lang.String)
 	 */
+	/** {@inheritDoc} */
 	@Override
 	public HelloWorld find(final String code) {
 		HelloWorld helloWorld = new HelloWorld();

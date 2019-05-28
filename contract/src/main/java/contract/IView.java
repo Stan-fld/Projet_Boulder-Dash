@@ -4,6 +4,7 @@ package contract;
  * The Interface IView.
  *
  * @author Jean-Aymeric Diet
+ * @version $Id: $Id
  */
 public interface IView {
 
