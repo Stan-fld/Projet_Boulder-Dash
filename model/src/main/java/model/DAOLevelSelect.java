@@ -44,6 +44,15 @@ class DAOLevelSelect extends DAOEntity<Level>
         return false;
     }
 
+
+    /**
+     * The find method
+     *
+     * It will communicates with the DAO by calling the LevelSelect procedure
+     * @param id
+     *          the id
+     * @return
+     */
     public Level find(final int id) {
         Level level = new Level();
 

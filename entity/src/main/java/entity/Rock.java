@@ -4,7 +4,6 @@ package entity;
  * <p>Rock class.</p>
  *
  * @author kevin
- * @version $Id: $Id
  */
 public class Rock extends AnimatedBlock {
     private static final int ANIMATION_COL = 1;

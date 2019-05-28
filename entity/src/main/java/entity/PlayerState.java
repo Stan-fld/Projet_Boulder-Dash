@@ -1,10 +1,9 @@
 package entity;
 
 /**
- * <p>PlayerState class.</p>
+ * <p>PlayerState enum.</p>
  *
  * @author kevin
- * @version $Id: $Id
  */
 public enum PlayerState {
     STATIC,

@@ -8,8 +8,8 @@ import java.util.Properties;
 /**
  * The Class GameProperties.
  *
- * @author Jean-Aymeric Diet
- * @version $Id: $Id
+ * @author Kevin
+ *
  */
 public class GameProperties extends Properties {
 
@@ -45,6 +45,11 @@ public class GameProperties extends Properties {
 		return blockScale;
 	}
 
+	/**
+	 * The blockSale Setter
+	 *
+	 * @param blockScale
+	 */
 	private void setBlockScale(int blockScale) {
 		this.blockScale = blockScale;
 	}
@@ -234,18 +239,38 @@ public class GameProperties extends Properties {
 		this.password = password;
 	}
 
+	/**
+	 * Gets the tailleMapx
+	 *
+	 * @return tailleMapx
+	 */
 	public int getTailleMapX() {
 		return tailleMapX;
 	}
 
+	/**
+	 * Sets the TailleMax
+	 *
+	 * @param tailleMapX the new TailleMapX
+	 */
 	private void setTailleMapX(int tailleMapX) {
 		this.tailleMapX = tailleMapX;
 	}
 
+	/**
+	 * Gets the TailleMapY
+	 *
+	 * @return TailleMapY
+	 */
 	public int getTailleMapY() {
 		return tailleMapY;
 	}
 
+	/**
+	 * Sets the TailleMapY
+	 *
+	 * @param tailleMapY the new TailleMapY
+	 */
 	private void setTailleMapY(int tailleMapY) {
 		this.tailleMapY = tailleMapY;
 	}

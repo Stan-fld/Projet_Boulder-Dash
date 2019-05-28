@@ -6,7 +6,6 @@ import entity.AnimatedBlock;
  * <p>Player class.</p>
  *
  * @author kevin
- * @version $Id: $Id
  */
 public class Player extends AnimatedBlock {
     /**

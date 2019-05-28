@@ -10,7 +10,6 @@ import java.io.IOException;
  * The class SpriteAsset
  *
  * @author Valentin
- * @version $Id: $Id
  */
 public class SpriteAsset {
 

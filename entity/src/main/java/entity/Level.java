@@ -13,12 +13,20 @@ public class Level {
     private int tailleMapX;
     private int tailleMapY;
 
-
+    /**
+     * The Level default constructor
+     *
+     */
     public Level()
     {
         init();
     }
 
+    /**
+     * The charged level constructor
+     *
+     * @param s the level
+     */
     public Level(String s)
     {
         System.out.println(
@@ -29,20 +37,24 @@ public class Level {
         {
             switch (s.charAt(i))
             {
-                //TODO add blocks
+
                 case 'W':
+                    //wall
                     break;
                 case 'D':
+                    //dirt
                     break;
                 case 'P':
+                    //personnage
                     break;
                 case 'S':
+                    //stone
                     break;
                 case 'O':
                     //diamond
                     break;
                 case 'E':
-                    //monster
+                    //ennemy
                     break;
                 case '\n':
                     y++;
@@ -59,7 +71,11 @@ public class Level {
     }
 
 
-
+    /**
+     * The init method
+     *
+     * It initializes the map
+     */
 
     private void init()
     {

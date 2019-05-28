@@ -13,7 +13,6 @@ import view.View;
  * The Class Main.
  *
  * @author Jean-Aymeric Diet
- * @version $Id: $Id
  */
 public abstract class Main {
 

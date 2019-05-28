@@ -22,7 +22,7 @@ public class AssetPerso extends SpriteAsset {
     }
 
     /**
-     *
+     *The AssetPerso method
      *
      */
     private AssetPerso()

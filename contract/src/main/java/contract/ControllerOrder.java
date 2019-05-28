@@ -6,7 +6,6 @@ package contract;
  * It will be used to move the character
  *
  * @author Valentin
- * @version $Id: $Id
  */
 public enum ControllerOrder {
 

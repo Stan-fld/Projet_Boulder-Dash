@@ -6,7 +6,6 @@ import java.awt.*;
  * The IBlock interface
  *
  * @author kevin
- * @version $Id: $Id
  */
 public interface IBlock
 {
@@ -15,6 +14,9 @@ public interface IBlock
      */
     //public void action ();
     /**
+     * The print method
+     *
+     *
      * <p>print.</p>
      */
     public void print();

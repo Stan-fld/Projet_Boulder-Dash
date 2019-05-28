@@ -6,7 +6,6 @@ package entity;
  * It is a singleton which contains blocks
  *
  * @author Kevin
- * @version $Id: $Id
  */
 public class AssetBlocks extends SpriteAsset {
 
