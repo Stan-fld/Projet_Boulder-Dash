@@ -1,5 +1,7 @@
 package entity;
 
+import entity.asset.AssetBlocks;
+
 /**
  * <p>Rock class.</p>
  *

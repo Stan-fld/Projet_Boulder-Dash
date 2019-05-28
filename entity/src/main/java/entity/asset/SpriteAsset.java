@@ -1,5 +1,7 @@
-package entity;
+package entity.asset;
 
+
+import entity.GameProperties;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
