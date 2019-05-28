@@ -75,7 +75,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
-		switch (controllerOrder) {
+	/*	switch (controllerOrder) {
 			case Up:
 				this.model.loadHelloWorld("GB");
 				break;
@@ -90,7 +90,9 @@ public final class Controller implements IController {
 				break;
 			default:
 				break;
-		}
+
+	 */
+
 		/*
 			public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {

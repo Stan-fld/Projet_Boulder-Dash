@@ -11,7 +11,6 @@ import entity.HelloWorld;
  * The Class Model.
  *
  * @author Jean-Aymeric Diet
- * @version $Id: $Id
  */
 public final class Model extends Observable implements IModel {
 
@@ -27,9 +26,6 @@ public final class Model extends Observable implements IModel {
 		this.test = new Rock(0, 0);
 	}
 
-	/**
-	 * <p>update.</p>
-	 */
 	public void update()
 	{
 		this.test.updateAnimationRow();
@@ -37,10 +33,10 @@ public final class Model extends Observable implements IModel {
 		this.notifyObservers();
 	}
 	/**
-	 * Gets the hello world.
-	 *
-	 * @return the hello world
-	 */
+     * Gets the hello world.
+     *
+     * @return the hello world
+     */
 	/*
 	 * (non-Javadoc)
 	 *
@@ -57,41 +53,42 @@ public final class Model extends Observable implements IModel {
      *            the new hello world
      */
 	private void setHelloWorld(final HelloWorld helloWorld) {
-		this.helloWorld = helloWorld;
-		this.setChanged();
-		this.notifyObservers();
+			this.helloWorld = helloWorld;
+			this.setChanged();
+			this.notifyObservers();
 	}
 
+
 	/**
-	 * {@inheritDoc}
-	 *
-	 * Load hello world.
-	 */
+     * Load hello world.
+     *
+     * @param code
+     *            the code
+     */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadHelloWorld(final String code) {
+	public void loadLevelSelect( int code) {
 		try {
-			final DAOHelloWorld daoHelloWorld = new DAOHelloWorld(DBConnection.getInstance().getConnection());
-			this.setHelloWorld(daoHelloWorld.find(code));
+			final DAOLevelSelect daoLevelSelect= new DAOLevelSelect(DBConnection.getInstance().getConnection());
+			this.set(daoLevelSelect.find(code));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
-	/** {@inheritDoc} */
 	public void print(Graphics g)
 	{
 		test.print(g);
 	}
 
 	/**
-	 * Gets the observable.
-	 *
-	 * @return the observable
-	 */
+     * Gets the observable.
+     *
+     * @return the observable
+     */
 	/*
 	 * (non-Javadoc)
 	 *

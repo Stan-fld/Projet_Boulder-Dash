@@ -13,7 +13,8 @@ import entity.Entity;
  * @param <E>
  *          the element type
  */
-abstract class DAOEntity<E extends Entity> {
+abstract class DAOEntity <E>{
+
 
 	/** The connection. */
 	private final Connection connection;
@@ -73,15 +74,7 @@ abstract class DAOEntity<E extends Entity> {
 	 *          the id
 	 * @return the e
 	 */
-	public abstract E find(int id);
+	public abstract E find(final int id);
 
-	/**
-	 * Find.
-	 *
-	 * @param code
-	 *          the code
-	 * @return the e
-	 */
-	public abstract E find(String code);
 
 }

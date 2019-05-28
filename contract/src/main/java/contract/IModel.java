@@ -4,12 +4,12 @@ import java.awt.*;
 import java.util.Observable;
 
 import entity.HelloWorld;
+import entity.LevelSelect;
 
 /**
  * The Interface IModel.
  *
  * @author Jean-Aymeric Diet
- * @version $Id: $Id
  */
 public interface IModel {
 
@@ -18,20 +18,15 @@ public interface IModel {
 	 *
 	 * @return the helloworld entity
 	 */
-	HelloWorld getHelloWorld();
-    /**
-     * <p>print.</p>
-     *
-     * @param g a {@link java.awt.Graphics} object.
-     */
+//	LevelSelect getLevelSelect();
     void print(Graphics g);
 	/**
 	 * Load the message.
 	 *
-	 * @param code
+	 * @param level
 	 *          the code
 	 */
-	void loadHelloWorld(String code);
+	void loadLevelSelect( int level);
 
 	/**
 	 * Gets the observable.
