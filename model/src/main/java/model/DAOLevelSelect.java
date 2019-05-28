@@ -1,6 +1,7 @@
 package model;
 
 
+import entity.Level;
 import entity.LevelSelect;
 
 import java.sql.CallableStatement;
