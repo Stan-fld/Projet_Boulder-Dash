@@ -1,6 +1,4 @@
-package model;
-
-import model.asset.AssetBlocks;
+package entity;
 
 /**
  * <p>Rock class.</p>

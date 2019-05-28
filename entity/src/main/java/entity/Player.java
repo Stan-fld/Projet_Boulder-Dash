@@ -1,4 +1,6 @@
-package model;
+package entity;
+
+import entity.AnimatedBlock;
 
 /**
  * <p>Player class.</p>

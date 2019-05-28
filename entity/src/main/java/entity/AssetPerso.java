@@ -1,4 +1,4 @@
-package model.asset;
+package entity;
 
 /**
  * The AssetPerso class
@@ -15,7 +15,7 @@ public class AssetPerso extends SpriteAsset {
     /**
      * <p>getInstance.</p>
      *
-     * @return a {@link model.asset.AssetPerso} object.
+     * @return a {@link AssetPerso} object.
      */
     public static AssetPerso getInstance() {
         return ourInstance;

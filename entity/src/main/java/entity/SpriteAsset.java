@@ -1,6 +1,5 @@
-package model.asset;
+package entity;
 
-import model.*;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

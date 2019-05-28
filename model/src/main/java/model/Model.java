@@ -6,16 +6,21 @@ import java.util.Observable;
 
 import contract.IModel;
 import entity.HelloWorld;
+import entity.Level;
+import entity.Rock;
 
 /**
  * The Class Model.
  *
  * @author Jean-Aymeric Diet
+ * @version $Id: $Id
  */
 public final class Model extends Observable implements IModel {
 
 	/** The helloWorld. */
 	private HelloWorld helloWorld;
+	private Level level;
+
 	private Rock test;
 
 	/**
@@ -26,6 +31,9 @@ public final class Model extends Observable implements IModel {
 		this.test = new Rock(0, 0);
 	}
 
+	/**
+	 * <p>update.</p>
+	 */
 	public void update()
 	{
 		this.test.updateAnimationRow();
@@ -33,62 +41,61 @@ public final class Model extends Observable implements IModel {
 		this.notifyObservers();
 	}
 	/**
-     * Gets the hello world.
-     *
-     * @return the hello world
-     */
+	 * Gets the level.
+	 *
+	 * @return the hello world
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IModel#getMessage()
 	 */
-	public HelloWorld getHelloWorld() {
-		return this.helloWorld;
+	public Level getLevel() {
+		return this.level;
 	}
 
 	/**
      * Sets the hello world.
      *
-     * @param helloWorld
+     * @param level
      *            the new hello world
      */
-	private void setHelloWorld(final HelloWorld helloWorld) {
-			this.helloWorld = helloWorld;
-			this.setChanged();
-			this.notifyObservers();
+	private void setLevel(final Level level) {
+		this.level = level;
+		this.setChanged();
+		this.notifyObservers();
 	}
 
-
 	/**
-     * Load hello world.
-     *
-     * @param code
-     *            the code
-     */
+	 * {@inheritDoc}
+	 *
+	 * Load hello world.
+	 */
 	/*
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadLevelSelect( int code) {
+	public void loadLevel(final int niv) {
 		try {
-			final DAOLevelSelect daoLevelSelect= new DAOLevelSelect(DBConnection.getInstance().getConnection());
-			this.set(daoLevelSelect.find(code));
+			final DAOLevelSelect daoLevelSelect = new DAOLevelSelect(DBConnection.getInstance().getConnection());
+			this.setLevel(daoLevelSelect.find(niv));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
+	/** {@inheritDoc} */
 	public void print(Graphics g)
 	{
 		test.print(g);
 	}
 
 	/**
-     * Gets the observable.
-     *
-     * @return the observable
-     */
+	 * Gets the observable.
+	 *
+	 * @return the observable
+	 */
 	/*
 	 * (non-Javadoc)
 	 *

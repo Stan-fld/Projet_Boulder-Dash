@@ -1,6 +1,4 @@
-package model;
-
-import contract.IBlock;
+package entity;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
