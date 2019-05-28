@@ -6,6 +6,8 @@ import java.util.Observable;
 
 import contract.IModel;
 import entity.HelloWorld;
+import entity.Level;
+import entity.Rock;
 
 /**
  * The Class Model.
@@ -74,10 +76,10 @@ public final class Model extends Observable implements IModel {
 	 *
 	 * @see contract.IModel#getMessage(java.lang.String)
 	 */
-	public void loadLevel(final String code) {
+	public void loadLevel(final int niv) {
 		try {
 			final DAOLevelSelect daoLevelSelect = new DAOLevelSelect(DBConnection.getInstance().getConnection());
-			this.setLevel(daoLevelSelect.find(code));
+			this.setLevel(daoLevelSelect.find(niv));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

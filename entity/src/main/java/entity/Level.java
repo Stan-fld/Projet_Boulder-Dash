@@ -1,4 +1,7 @@
-package model;
+package entity;
+
+import entity.Block;
+import entity.GameProperties;
 
 public class Level {
     private Block[][] map;

@@ -1,4 +1,4 @@
-package model;
+package entity;
 
 
 import java.io.IOException;
@@ -91,7 +91,7 @@ public class GameProperties extends Properties {
 	/**
 	 * <p>getInstance.</p>
 	 *
-	 * @return a {@link model.GameProperties} object.
+	 * @return a {@link GameProperties} object.
 	 */
 	public static GameProperties getInstance() {
         return INSTANCE;

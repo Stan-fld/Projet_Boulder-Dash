@@ -4,6 +4,7 @@ import java.awt.*;
 import java.util.Observable;
 
 import entity.HelloWorld;
+import entity.Level;
 
 /**
  * The Interface IModel.
@@ -18,7 +19,8 @@ public interface IModel {
 	 *
 	 * @return the helloworld entity
 	 */
-	HelloWorld getHelloWorld();
+	public Level getLevel();
+
     /**
      * <p>print.</p>
      *
@@ -28,10 +30,10 @@ public interface IModel {
 	/**
 	 * Load the message.
 	 *
-	 * @param code
+	 * @param niv
 	 *          the code
 	 */
-	void loadHelloWorld(String code);
+	void loadLevel(int niv);
 
 	/**
 	 * Gets the observable.

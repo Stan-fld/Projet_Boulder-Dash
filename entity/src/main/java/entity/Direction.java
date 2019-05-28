@@ -1,13 +1,12 @@
-package model;
+package entity;
 
 /**
- * <p>PlayerState class.</p>
+ * <p>Direction class.</p>
  *
  * @author kevin
  * @version $Id: $Id
  */
-public enum PlayerState {
-    STATIC,
+public enum Direction {
     LEFT,
     UP,
     RIGHT,
