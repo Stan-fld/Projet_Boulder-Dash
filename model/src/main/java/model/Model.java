@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
-import entity.HelloWorld;
 import entity.Level;
 import entity.Rock;
 
@@ -18,7 +17,6 @@ import entity.Rock;
 public final class Model extends Observable implements IModel {
 
 	/** The helloWorld. */
-	private HelloWorld helloWorld;
 	private Level level;
 
 	private Rock test;
@@ -27,7 +25,7 @@ public final class Model extends Observable implements IModel {
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		this.helloWorld = new HelloWorld();
+		loadLevel(1);
 		this.test = new Rock(0, 0);
 	}
 

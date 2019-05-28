@@ -3,7 +3,6 @@ package contract;
 import java.awt.*;
 import java.util.Observable;
 
-import entity.HelloWorld;
 import entity.Level;
 
 /**
