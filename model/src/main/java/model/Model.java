@@ -75,8 +75,8 @@ public final class Model extends Observable implements IModel {
 	 */
 	public void loadLevel(final int niv) {
 		try {
-			final DAOLevelSelect daoLevelSelect = new DAOLevelSelect(DBConnection.getInstance().getConnection());
-			this.setLevel(daoLevelSelect.find(niv));
+			final DAOLevel daoLevel = new DAOLevel(DBConnection.getInstance().getConnection());
+			this.setLevel(daoLevel.find(niv));
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}

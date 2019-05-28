@@ -9,14 +9,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- *The DAOLevelSelect class
+ *The DAOLevel class
  *
  * It returns the result from the database into a level object
  *
  * @author Valentin
  */
 
-class DAOLevelSelect extends DAOEntity<Level>
+class DAOLevel extends DAOEntity<Level>
 {
 
     /**
@@ -25,7 +25,7 @@ class DAOLevelSelect extends DAOEntity<Level>
      * @param connection the connection
      * @throws SQLException the SQL exception
      */
-    public DAOLevelSelect(Connection connection) throws SQLException {
+    public DAOLevel(Connection connection) throws SQLException {
         super(connection);
     }
 
