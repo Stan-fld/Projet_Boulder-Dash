@@ -28,7 +28,10 @@ public class AssetPerso extends SpriteAsset {
     private AssetPerso()
     {
         super("assets/Perso.png");
+
     }
+
+
 
 
 }

@@ -2,9 +2,11 @@ package entity.asset;
 
 
 import entity.GameProperties;
+import org.w3c.dom.css.RGBColor;
 
 import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
+import java.awt.*;
+import java.awt.image.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -29,7 +31,10 @@ public class SpriteAsset {
      */
     public SpriteAsset(String path) {
         try {
-            img = ImageIO.read(new File(path));
+            BufferedImage tmp = ImageIO.read(new File(path));
+            //On converti en RGBA :
+            img = new BufferedImage(tmp.getWidth(), tmp.getHeight(), BufferedImage.TYPE_INT_ARGB);
+            img.getGraphics().drawImage(tmp, 0, 0, null);
         } catch (IOException e) {
             System.out.println("le fichier n'existe pas");
         }
@@ -62,6 +67,25 @@ public class SpriteAsset {
      */
     public BufferedImage getSprite(int x, int y) {
         return getSprite(x, y, 1, 1);
+    }
+
+    public void makeTransparent(Color colorMask)
+    {
+        int width = this.img.getWidth();
+        int height = this.img.getHeight();
+        Color transp = new Color(0,0,0, 0);
+
+        int[] imagePixels = this.img.getRGB(0, 0, width, height, null, 0, width);
+
+        for (int i = 0; i < imagePixels.length; i++)
+        {
+            if (imagePixels[i] == colorMask.getRGB()) {
+
+                imagePixels[i] = transp.getRGB();
+            }
+        }
+
+        this.img.setRGB(0, 0, width, height, imagePixels, 0, width);
     }
 
 }

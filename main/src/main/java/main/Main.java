@@ -9,6 +9,8 @@ import controller.Controller;
 import model.Model;
 import view.View;
 
+import java.util.TreeMap;
+
 /**
  * The Class Main.
  *
@@ -29,15 +31,13 @@ public abstract class Main {
         view.setController(controller);
 
 
-        controller.control();
+        //controller.control();
         //controller.orderPerform(ControllerOrder.);
-
-
         while (true)
         {
             try {
 
-                Thread.sleep(10);
+                Thread.sleep(100);
             }catch (InterruptedException e)
             {
                 System.out.println("test");

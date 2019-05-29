@@ -36,17 +36,16 @@ public abstract class Block extends Rectangle{
 
 
     //Ecriture de la taille des blocks
-    private static int sizeX = 0;
-    private static int sizeY = 0;
-    private static int blockScale = 0;
+    private static final int sizeX = GameProperties.getInstance().getSizeX();
+    private static final int sizeY = GameProperties.getInstance().getSizeY();
+    private static final int blockScale = GameProperties.getInstance().getBlockScale();
 
     /**
      * <p>Constructor for Block.</p>
      */
     protected Block()
     {
-
-        super();
+        super(sizeX, sizeY);
         init(null);
     }
 
@@ -71,22 +70,18 @@ public abstract class Block extends Rectangle{
      */
     public Block(int x, int y, BufferedImage img)
     {
-        super(x, y, sizeX, sizeY);
+        super(x * sizeX, y * sizeY, sizeX, sizeY);
         init(img);
     }
 
     private void init(BufferedImage img)
     {
         this.setImage(img);
-        if (sizeX == 0 || sizeY == 0 || blockScale == 0)
-        {
-            GameProperties properties = GameProperties.getInstance();
-            sizeX = properties.getSizeX();
-            sizeY = properties.getSizeY();
-            blockScale = properties.getBlockScale();
-        }
     }
 
+    public static int getBlockScale() {
+        return blockScale;
+    }
 
     /**
      * <p>Getter for the field <code>image</code>.</p>
@@ -109,7 +104,7 @@ public abstract class Block extends Rectangle{
     /**
      * <p>move.</p>
      *
-     * @param direction a {@link model.Direction} object.
+     * @param direction a {@link entity.Direction} object.
      */
     public void move(Direction direction)
     {
@@ -126,14 +121,16 @@ public abstract class Block extends Rectangle{
      */
     public void print(Graphics g)
     {
-        g.drawImage(this.getImage(), (int) this.getX(), (int) this.getY(),null);
+        g.drawImage(this.getImage(), (int) this.getX() * getBlockScale(), (int) this.getY() * getBlockScale()
+                    , (int) (this.getWidth() * getBlockScale()), (int) (this.getHeight() * getBlockScale()),null);
     }
 
 
     /**
      * <p>update.</p>
      */
-    public void update() {
+    public void update(Level map, int objectiveX, int objectiveY) {
+        this.setLocation(objectiveX * sizeX, objectiveY * sizeY);
 
     }
 }

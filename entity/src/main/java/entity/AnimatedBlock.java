@@ -168,7 +168,13 @@ public abstract class AnimatedBlock extends Block{
     public void print(Graphics g)
     {
         g.drawImage(this.getImage().getSubimage(getSizeX() * this.animationCol, getSizeY() * this.animationRow,
-                    getSizeX(), getSizeY()), (int) this.getX(), (int) this.getY(), getSizeX() * 2, 32,null);
+                    getSizeX(), getSizeY()), (int) this.getX() * getBlockScale(), (int) this.getY() * getBlockScale(),
+                getSizeX() * getBlockScale(), getSizeY() * getBlockScale(),null);
     }
 
+    @Override
+    public void update(Level map, int objectiveX, int objectiveY) {
+        super.update(map, objectiveX, objectiveY);
+        this.updateAnimationRow();
+    }
 }

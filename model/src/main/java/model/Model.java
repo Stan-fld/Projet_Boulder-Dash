@@ -25,7 +25,7 @@ public final class Model extends Observable implements IModel {
 	 */
 	public Model() {
 		loadLevel(1);
-		this.test = new Rock(0, 0);
+		//this.test = new Rock(0, 0);
 	}
 
 	/**
@@ -33,7 +33,7 @@ public final class Model extends Observable implements IModel {
 	 */
 	public void update()
 	{
-		this.test.updateAnimationRow();
+		level.update();
 		this.setChanged();
 		this.notifyObservers();
 	}
@@ -85,7 +85,8 @@ public final class Model extends Observable implements IModel {
 	/** {@inheritDoc} */
 	public void print(Graphics g)
 	{
-		test.print(g);
+		level.print(g);
+		//test.print(g);
 	}
 
 	/**
