@@ -15,7 +15,6 @@ import java.io.IOException;
  */
 public class SpriteAsset {
 
-    /** Constant <code>sizeX</code> */
     /** Constant <code>sizeY</code> */
     public static int sizeX, sizeY;
     private BufferedImage img;

@@ -17,7 +17,9 @@ public class ControllerTest {
     }
 
     @Test
-    public void control() {
+    public void control()
+    {
+
     }
 
     @Test
