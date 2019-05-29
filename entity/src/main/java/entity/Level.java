@@ -147,9 +147,17 @@ public class Level {
                             moveBlock(Direction.DOWN, x, y);
                             alreadyMoved[x][y + 1] = true;
                         }
-                        if (map[x][y + 1] instanceof Ennemy) {
+                        else if (map[x][y + 1] instanceof Ennemy) {
                             moveBlock(Direction.DOWN, x, y);
                             alreadyMoved[x][y + 1] = true;
+                        }
+                        else if (map[x][y + 1] instanceof Fallable && map[x+1][y] instanceof BackgroundDirt && map[x+1][y+1] instanceof BackgroundDirt ) {
+                            moveBlock(Direction.RIGHT, x, y);
+                            alreadyMoved[x+1][y] = true;
+                        }
+                        else if (map[x][y + 1] instanceof Fallable && map[x-1][y] instanceof BackgroundDirt && map[x-1][y+1] instanceof BackgroundDirt ) {
+                            moveBlock(Direction.LEFT, x, y);
+                            alreadyMoved[x-1][y] = true;
                         }
                     } else if (blockAUpdate instanceof Ennemy && y < tailleMapY - 1) {
                         if (map[x + 1][y] instanceof BackgroundDirt) {
