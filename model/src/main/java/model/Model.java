@@ -24,7 +24,7 @@ public final class Model extends Observable implements IModel {
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		loadLevel(1);
+		loadLevel(4);
 		//this.test = new Stone(0, 0);
 	}
 
