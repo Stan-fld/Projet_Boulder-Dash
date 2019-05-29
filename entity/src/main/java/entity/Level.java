@@ -58,8 +58,10 @@ public class Level {
                     break;
                 case 'O':
                     map[x][y] = new Diamond(x, y);
+                    //Diamond
                     break;
                 case 'E':
+                    map[x][y] = new Ennemy(x,y);
                     //ennemy
                     break;
                 case '\n':
@@ -68,6 +70,7 @@ public class Level {
                     break;
                 case ' ':
                     map[x][y] = new BackgroundDirt(x, y);
+                    //Backgrounddirt
                     break;
 
                 default:
@@ -101,7 +104,7 @@ public class Level {
     public void moveBlock(Direction direction, int blockX, int blockY)
     {
         Block blockADeplacer = map[blockX][blockY];
-        map[blockX][blockY] = null;
+        map[blockX][blockY] = new BackgroundDirt(blockX, blockY);
 
         switch (direction) {
             case UP:
@@ -139,7 +142,7 @@ public class Level {
             {
                 blockAUpdate = map[x][y];
                 if (blockAUpdate instanceof Rock && y < tailleMapY - 1 && !alreadyMoved[x][y]) {
-                    if (map[x][y + 1] == null) {
+                    if (map[x][y + 1] instanceof BackgroundDirt ) {
                         moveBlock(Direction.DOWN, x, y);
                         alreadyMoved[x][y + 1] = true;
                     }
