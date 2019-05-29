@@ -66,6 +66,9 @@ public class Level {
                     y++;
                     x = -1;
                     break;
+                case ' ':
+                    map[x][y] = new BackgroundDirt(x, y);
+                    break;
 
                 default:
                     //erreur
