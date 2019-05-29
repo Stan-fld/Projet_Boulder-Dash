@@ -37,7 +37,7 @@ public abstract class Main {
         {
             try {
 
-                Thread.sleep(100);
+                Thread.sleep(1000);
             }catch (InterruptedException e)
             {
                 System.out.println("test");

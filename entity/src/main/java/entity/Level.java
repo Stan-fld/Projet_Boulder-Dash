@@ -136,7 +136,7 @@ public class Level {
 
 
         //on update chaque block dans la matrice
-        for (int y = 0; y < tailleMapY; y++)
+        for (int y = tailleMapY -1; y > 0; y--)
         {
             for (int x = 0; x < tailleMapX; x++)
             {
