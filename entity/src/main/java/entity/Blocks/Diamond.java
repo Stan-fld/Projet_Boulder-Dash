@@ -10,7 +10,7 @@ import entity.asset.AssetBlocks;
  * @author Valentin
  */
 
-public class Diamond extends AnimatedBlock
+public class Diamond extends Fallable
 {
     private static final int ANIMATION_COL = 1;
     private static final int ANIMATION_ROWS = 4;

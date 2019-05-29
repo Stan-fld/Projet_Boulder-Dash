@@ -2,6 +2,7 @@ package entity;
 
 import entity.Blocks.*;
 
+import javax.xml.stream.events.EndElement;
 import java.awt.*;
 
 /**
@@ -132,14 +133,21 @@ public class Level {
         boolean alreadyMoved[][] = new boolean[tailleMapX][tailleMapY];
 
         Block blockAUpdate;
+
+
+        //on update chaque block dans la matrice
         for (int y = 0; y < tailleMapY; y++)
         {
             for (int x = 0; x < tailleMapX; x++)
             {
                 blockAUpdate = map[x][y];
                 if (!alreadyMoved[x][y]) {
-                    if (blockAUpdate instanceof Stone && y < tailleMapY - 1) {
+                    if (blockAUpdate instanceof Fallable && y < tailleMapY - 1) {
                         if (map[x][y + 1] instanceof BackgroundDirt) {
+                            moveBlock(Direction.DOWN, x, y);
+                            alreadyMoved[x][y + 1] = true;
+                        }
+                        if (map[x][y + 1] instanceof Ennemy) {
                             moveBlock(Direction.DOWN, x, y);
                             alreadyMoved[x][y + 1] = true;
                         }
@@ -159,10 +167,15 @@ public class Level {
                         }
                     }
                 }
+
+            }
+        }
+        //On update chaque block a la position demandée
+        for (int y = 0; y < tailleMapY; y++) {
+            for (int x = 0; x < tailleMapX; x++) {
                 if (map[x][y] != null)
                 {
                     map[x][y].update(this, x, y);
-
                 }
             }
         }

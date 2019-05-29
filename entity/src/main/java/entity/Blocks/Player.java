@@ -8,8 +8,7 @@ import java.awt.image.BufferedImage;
  * @author kevin
  */
 public class Player extends AnimatedBlock {
-    BufferedImage leftImg;
-    BufferedImage rightImg;
+    BufferedImage imgTab[] = new BufferedImage[5];
 
     /**
      * <p>Constructor for Player.</p>

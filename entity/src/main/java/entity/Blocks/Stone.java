@@ -7,7 +7,7 @@ import entity.asset.AssetBlocks;
  *
  * @author kevin
  */
-public class Stone extends AnimatedBlock {
+public class Stone extends Fallable{
     private static final int ANIMATION_COL = 1;
     private static final int ANIMATION_ROWS = 4;
     private static final int START_COL = 3;
