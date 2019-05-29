@@ -11,7 +11,7 @@ import entity.asset.AssetBlocks;
     {
         private static final int ANIMATION_COL = 1;
         private static final int ANIMATION_ROWS = 4;
-        private static final int START_COL = 9;
+        private static final int START_COL = 10;
         private static final int START_ROW = 0;
 
         /**

@@ -3,6 +3,7 @@ package entity;
 import entity.Block;
 import entity.GameProperties;
 
+import javax.xml.stream.events.EndElement;
 import java.awt.*;
 
 /**
@@ -60,7 +61,7 @@ public class Level {
                     map[x][y] = new Diamond(x, y);
                     break;
                 case 'E':
-                    //ennemy
+                    map[x][y] = new Ennemy(x, y);
                     break;
                 case '\n':
                     y++;
