@@ -11,7 +11,7 @@ import contract.IView;
  * @author kevin
  * @version $Id: $Id
  */
-public final class Controller implements IController {
+public final class Controller implements IController  {
 
 	/** The view. */
 	private IView view;

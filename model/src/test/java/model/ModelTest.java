@@ -32,5 +32,23 @@ public class ModelTest {
     }
 
 
-    
+    @Test
+    public void update() {
+    }
+
+    @Test
+    public void getLevel() {
+    }
+
+    @Test
+    public void loadLevel() {
+    }
+
+    @Test
+    public void print() {
+    }
+
+    @Test
+    public void getObservable() {
+    }
 }

@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
  * @author kevin
  * @version $Id: $Id
  */
-public abstract class AnimatedBlock extends Block {
+public abstract class AnimatedBlock extends Block{
     private int maxRow;
     private int maxCol;
     private int animationRow;

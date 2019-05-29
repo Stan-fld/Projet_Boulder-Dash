@@ -14,6 +14,12 @@ import entity.asset.AssetBlocks;
         private static final int START_COL = 9;
         private static final int START_ROW = 0;
 
+        /**
+         * The ennemy constructor
+         *
+         * @param x
+         * @param y
+         */
         public Ennemy(int x, int y) {
             super(x, y, AssetBlocks.getInstance().getSprite(START_COL, START_ROW, ANIMATION_COL, ANIMATION_ROWS)
                     , ANIMATION_COL, ANIMATION_ROWS);
