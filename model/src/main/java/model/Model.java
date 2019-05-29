@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Observable;
 
 import contract.IModel;
+import entity.GameProperties;
 import entity.Level;
 import entity.Blocks.Stone;
 
@@ -24,7 +25,7 @@ public final class Model extends Observable implements IModel {
 	 * Instantiates a new model.
 	 */
 	public Model() {
-		loadLevel(1);
+		loadLevel(GameProperties.getInstance().getLevel());
 		//this.test = new Stone(0, 0);
 	}
 
