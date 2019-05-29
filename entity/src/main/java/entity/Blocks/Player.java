@@ -1,6 +1,6 @@
-package entity;
+package entity.Blocks;
 
-import entity.AnimatedBlock;
+import java.awt.image.BufferedImage;
 
 /**
  * <p>Player class.</p>
@@ -8,6 +8,9 @@ import entity.AnimatedBlock;
  * @author kevin
  */
 public class Player extends AnimatedBlock {
+    BufferedImage leftImg;
+    BufferedImage rightImg;
+
     /**
      * <p>Constructor for Player.</p>
      */

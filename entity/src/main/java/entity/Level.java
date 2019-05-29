@@ -1,9 +1,7 @@
 package entity;
 
-import entity.Block;
-import entity.GameProperties;
+import entity.Blocks.*;
 
-import javax.xml.stream.events.EndElement;
 import java.awt.*;
 
 /**
@@ -54,7 +52,7 @@ public class Level {
                     //personnage
                     break;
                 case 'S':
-                    map[x][y] = new Rock(x, y);
+                    map[x][y] = new Stone(x, y);
                     //stone
                     break;
                 case 'O':
@@ -139,7 +137,7 @@ public class Level {
             for (int x = 0; x < tailleMapX; x++)
             {
                 blockAUpdate = map[x][y];
-                if (blockAUpdate instanceof Rock && y < tailleMapY - 1 && !alreadyMoved[x][y]) {
+                if (blockAUpdate instanceof Stone && y < tailleMapY - 1 && !alreadyMoved[x][y]) {
                     if (map[x][y + 1] == null) {
                         moveBlock(Direction.DOWN, x, y);
                         alreadyMoved[x][y + 1] = true;

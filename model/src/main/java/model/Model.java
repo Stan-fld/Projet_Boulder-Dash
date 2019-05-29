@@ -6,7 +6,7 @@ import java.util.Observable;
 
 import contract.IModel;
 import entity.Level;
-import entity.Rock;
+import entity.Blocks.Stone;
 
 /**
  * The Class Model.
@@ -18,14 +18,14 @@ public final class Model extends Observable implements IModel {
 	/** The level */
 	private Level level;
 
-	private Rock test;
+	private Stone test;
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
 		loadLevel(1);
-		//this.test = new Rock(0, 0);
+		//this.test = new Stone(0, 0);
 	}
 
 	/**

@@ -1,4 +1,7 @@
-package entity;
+package entity.Blocks;
+
+import entity.GameProperties;
+import entity.Level;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

@@ -1,4 +1,4 @@
-package entity;
+package entity.Blocks;
 
 import entity.asset.AssetBlocks;
 

@@ -1,17 +1,10 @@
-package entity;
+package entity.Blocks;
 
 import entity.asset.AssetBlocks;
 
-/**
- * The Wall class
- *
- *
- * @author Valentin
- */
-
-public class Wall extends Block
+public class BackgroundDirt extends Block
 {
-    private static final int START_COL =0;
+    private static final int START_COL =2;
     private static final int START_ROW = 0;
 
     /**
@@ -20,7 +13,7 @@ public class Wall extends Block
      * @param x
      * @param y
      */
-    public Wall(int x, int y)
+    public BackgroundDirt(int x, int y)
     {
         super(x, y, AssetBlocks.getInstance().getSprite(START_COL, START_ROW));
     }

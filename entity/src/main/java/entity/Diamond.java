@@ -1,5 +1,6 @@
 package entity;
 
+import entity.Blocks.AnimatedBlock;
 import entity.asset.AssetBlocks;
 
 /**
