@@ -1,17 +1,34 @@
-package entity;
+package model;
 
+import contract.IModel;
 import entity.Blocks.*;
+import entity.Direction;
+import entity.GameProperties;
 
-import javax.xml.stream.events.EndElement;
 import java.awt.*;
+import java.util.Observable;
 
 /**
  * The Level class
  *
  * @author Kevin
  */
-public class Level {
+public class Level extends Observable implements IModel {
     private Block[][] map;
+
+    public int getTailleMapX() {
+        return tailleMapX;
+    }
+
+    public int getTailleMapY() {
+        return tailleMapY;
+    }
+
+    @Override
+    public void setChanged() {
+        super.setChanged();
+    }
+
     private int tailleMapX;
     private int tailleMapY;
 
@@ -131,63 +148,7 @@ public class Level {
 
     public void update()
     {
-        boolean alreadyMoved[][] = new boolean[tailleMapX][tailleMapY];
 
-        Block blockAUpdate;
-
-
-        //on update chaque block dans la matrice
-        for (int y = tailleMapY -1; y > 0; y--)
-        {
-            for (int x = 0; x < tailleMapX; x++)
-            {
-                blockAUpdate = map[x][y];
-                if (!alreadyMoved[x][y]) {
-                    if (blockAUpdate instanceof Fallable && y < tailleMapY - 1) {
-                        if (map[x][y + 1] instanceof BackgroundDirt) {
-                            moveBlock(Direction.DOWN, x, y);
-                            alreadyMoved[x][y + 1] = true;
-                        }
-                        else if (map[x][y + 1] instanceof Ennemy) {
-                            moveBlock(Direction.DOWN, x, y);
-                            alreadyMoved[x][y + 1] = true;
-                        }
-                        else if (map[x][y + 1] instanceof Fallable && map[x+1][y] instanceof BackgroundDirt && map[x+1][y+1] instanceof BackgroundDirt ) {
-                            moveBlock(Direction.RIGHT, x, y);
-                            alreadyMoved[x+1][y] = true;
-                        }
-                        else if (map[x][y + 1] instanceof Fallable && map[x-1][y] instanceof BackgroundDirt && map[x-1][y+1] instanceof BackgroundDirt ) {
-                            moveBlock(Direction.LEFT, x, y);
-                            alreadyMoved[x-1][y] = true;
-                        }
-                    } else if (blockAUpdate instanceof Ennemy && y < tailleMapY - 1) {
-                        if (map[x + 1][y] instanceof BackgroundDirt) {
-                            moveBlock(Direction.RIGHT, x, y);
-                            alreadyMoved[x + 1][y] = true;
-                        } else if (map[x][y - 1] instanceof BackgroundDirt) {
-                            moveBlock(Direction.UP, x, y);
-                            alreadyMoved[x][y - 1] = true;
-                        } else if (map[x - 1][y] instanceof BackgroundDirt) {
-                            moveBlock(Direction.LEFT, x, y);
-                            alreadyMoved[x - 1][y] = true;
-                        } else if (map[x][y + 1] instanceof BackgroundDirt) {
-                            moveBlock(Direction.DOWN, x, y);
-                            alreadyMoved[x][y + 1] = true;
-                        }
-                    }
-                }
-
-            }
-        }
-        //On update chaque block a la position demandée
-        for (int y = 0; y < tailleMapY; y++) {
-            for (int x = 0; x < tailleMapX; x++) {
-                if (map[x][y] != null)
-                {
-                    map[x][y].update(this, x, y);
-                }
-            }
-        }
     }
 
     //retourne le block a la position donnée
@@ -207,5 +168,10 @@ public class Level {
                 }
             }
         }
+    }
+
+
+    public Observable getObservable() {
+        return this;
     }
 }

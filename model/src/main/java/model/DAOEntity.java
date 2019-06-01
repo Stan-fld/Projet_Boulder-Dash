@@ -13,7 +13,7 @@ import entity.Entity;
  * @param <E>
  *          the element type
  */
-abstract class DAOEntity <E>{
+public abstract class DAOEntity <E>{
 
 
 	/** The connection. */

@@ -1,8 +1,6 @@
 package model;
 
 
-import entity.Level;
-
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -16,7 +14,7 @@ import java.sql.SQLException;
  * @author Valentin
  */
 
-class DAOLevel extends DAOEntity<Level>
+public class DAOLevel extends DAOEntity<Level>
 {
 
     /**

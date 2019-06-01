@@ -1,6 +1,5 @@
 package entity.Blocks;
 
-import entity.Level;
 import entity.PlayerState;
 import entity.asset.AssetPerso;
 import entity.asset.SpriteAsset;
@@ -59,10 +58,10 @@ public class Player extends AnimatedBlock {
     }
 
     @Override
-    public void update(Level map, int objectiveX, int objectiveY) {
+    public void update(int objectiveX, int objectiveY) {
         PlayerState oldState = this.state;
 
-        this.backgroudBlock.update(map, objectiveX, objectiveY);
+        this.backgroudBlock.update(objectiveX, objectiveY);
 
         if (objectiveX == this.getX() && objectiveY == this.getY())
         {
@@ -98,7 +97,7 @@ public class Player extends AnimatedBlock {
 
 
         this.updateAnimationCol();
-        super.update(map, objectiveX, objectiveY);
+        super.update(objectiveX, objectiveY);
     }
 
     @Override

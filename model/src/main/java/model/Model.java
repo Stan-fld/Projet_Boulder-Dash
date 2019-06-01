@@ -6,38 +6,24 @@ import java.util.Observable;
 
 import contract.IModel;
 import entity.GameProperties;
-import entity.Level;
-import entity.Blocks.Stone;
 
 /**
  * The Class Model.
- *
+ * ######OBSOLETE
  * @author Valentin
  */
-public final class Model extends Observable implements IModel {
+public final class Model extends Observable /*implements IModel*/ {
 
 	/** The level */
 	private Level level;
-
-	private Stone test;
 
 	/**
 	 * Instantiates a new model.
 	 */
 	public Model() {
 		loadLevel(GameProperties.getInstance().getLevel());
-		//this.test = new Stone(0, 0);
 	}
 
-	/**
-	 * <p>update.</p>
-	 */
-	public void update()
-	{
-		level.update();
-		this.setChanged();
-		this.notifyObservers();
-	}
 	/**
 	 * Gets the level.
 	 *
@@ -87,7 +73,6 @@ public final class Model extends Observable implements IModel {
 	public void print(Graphics g)
 	{
 		level.print(g);
-		//test.print(g);
 	}
 
 	/**

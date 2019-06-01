@@ -2,7 +2,6 @@ package entity.Blocks;
 
 import entity.Direction;
 import entity.GameProperties;
-import entity.Level;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -133,7 +132,7 @@ public abstract class Block extends Rectangle{
     /**
      * <p>update.</p>
      */
-    public void update(Level map, int objectiveX, int objectiveY) {
+    public void update(int objectiveX, int objectiveY) {
         this.setLocation(objectiveX * sizeX, objectiveY * sizeY);
 
     }

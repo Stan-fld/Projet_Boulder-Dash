@@ -4,8 +4,9 @@
  */
 package main;
 
-import contract.ControllerOrder;
+import contract.IModel;
 import controller.Controller;
+import entity.GameProperties;
 import model.Model;
 import view.View;
 
@@ -25,7 +26,7 @@ public abstract class Main {
      *            the arguments
      */
     public static void main(final String[] args) {
-        final Model model = new Model();
+        final IModel model = Controller.loadLevel(GameProperties.getInstance().getLevel());
         final View view = new View(model);
         final Controller controller = new Controller(view, model);
         view.setController(controller);
@@ -40,9 +41,9 @@ public abstract class Main {
                 Thread.sleep(100);
             }catch (InterruptedException e)
             {
-                System.out.println("test");
+                e.printStackTrace();
             }
-            model.update();
+            controller.control();
         }
     }
 }

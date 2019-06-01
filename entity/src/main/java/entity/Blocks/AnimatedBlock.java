@@ -1,7 +1,6 @@
 package entity.Blocks;
 
 import entity.GameProperties;
-import entity.Level;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -198,8 +197,8 @@ public abstract class AnimatedBlock extends Block{
     }
 
     @Override
-    public void update(Level map, int objectiveX, int objectiveY) {
-        super.update(map, objectiveX, objectiveY);
+    public void update(int objectiveX, int objectiveY) {
+        super.update(objectiveX, objectiveY);
         this.updateAnimationRow();
     }
 }

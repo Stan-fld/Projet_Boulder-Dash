@@ -1,9 +1,11 @@
 package contract;
 
+import entity.Blocks.Block;
+import entity.Direction;
+
 import java.awt.*;
 import java.util.Observable;
 
-import entity.Level;
 
 /**
  * The Interface IModel.
@@ -13,12 +15,6 @@ import entity.Level;
  */
 public interface IModel {
 
-	/**
-	 * Gets the level.
-	 *
-	 * @return the getlevel
-	 */
-	public Level getLevel();
 
     /**
      * <p>print.</p>
@@ -26,13 +22,14 @@ public interface IModel {
      * @param g a {@link java.awt.Graphics} object.
      */
     void print(Graphics g);
-	/**
-	 * Load the message.
-	 *
-	 * @param niv
-	 *          the code
-	 */
-	void loadLevel(int niv);
+
+
+	int getTailleMapX();
+
+	int getTailleMapY();
+
+
+	void setChanged();
 
 	/**
 	 * Gets the observable.
@@ -40,4 +37,12 @@ public interface IModel {
 	 * @return the observable
 	 */
 	Observable getObservable();
+
+
+	Block getBlock(int x, int y);
+
+
+	void moveBlock(Direction direction, int blockX, int blockY);
+
+
 }
