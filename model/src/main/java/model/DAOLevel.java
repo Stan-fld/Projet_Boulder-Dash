@@ -71,5 +71,5 @@ class DAOLevel extends DAOEntity<Level>
         }
         return null;
     }
-    }
+}
 

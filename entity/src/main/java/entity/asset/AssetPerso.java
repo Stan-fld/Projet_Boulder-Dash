@@ -1,5 +1,7 @@
 package entity.asset;
 
+import java.awt.*;
+
 /**
  * The AssetPerso class
  *
@@ -27,7 +29,10 @@ public class AssetPerso extends SpriteAsset {
      */
     private AssetPerso()
     {
-        super("assets/Perso.png");
+        super("D:\\Dev\\Java\\Projet_Boulder-Dash\\model\\src\\main\\resources\\assets\\Perso.png");
+
+        //On rend le fond transparent par rapport a une couleur
+        makeTransparent(new Color(107, 109, 0));
 
     }
 

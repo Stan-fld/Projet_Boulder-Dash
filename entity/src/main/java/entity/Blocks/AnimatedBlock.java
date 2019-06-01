@@ -13,6 +13,28 @@ import java.awt.image.BufferedImage;
  * @version $Id: $Id
  */
 public abstract class AnimatedBlock extends Block{
+    public int getMaxRow() {
+        return maxRow;
+    }
+
+    public void setMaxRow(int maxRow) {
+        if (this.maxRow != maxRow) {
+            this.maxRow = maxRow;
+            this.animationRow = 0;
+        }
+    }
+
+    public int getMaxCol() {
+        return maxCol;
+    }
+
+    public void setMaxCol(int maxCol) {
+        if (this.maxCol != maxCol) {
+            this.maxCol = maxCol;
+            this.animationCol = 0;
+        }
+    }
+
     private int maxRow;
     private int maxCol;
     private int animationRow;

@@ -51,6 +51,7 @@ public class Level {
                     break;
                 case 'P':
                     //personnage
+                    map[x][y] = new Player(x, y);
                     break;
                 case 'S':
                     map[x][y] = new Stone(x, y);
