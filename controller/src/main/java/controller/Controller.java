@@ -4,10 +4,7 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
-import entity.Blocks.BackgroundDirt;
-import entity.Blocks.Block;
-import entity.Blocks.Ennemy;
-import entity.Blocks.Fallable;
+import entity.Blocks.*;
 import entity.Direction;
 import model.DAOLevel;
 import model.DBConnection;
@@ -31,6 +28,9 @@ public final class Controller implements IController  {
 
 	private Level level;
 
+
+	private int points = 0;
+
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -53,53 +53,57 @@ public final class Controller implements IController  {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		IModel level = this.model;
-		boolean alreadyMoved[][] = new boolean[level.getTailleMapX()][level.getTailleMapY()];
+		//IModel this.model = this.model;
+		boolean alreadyMoved[][] = new boolean[this.model.getTailleMapX()][this.model.getTailleMapY()];
 
 		Block blockAUpdate;
 
 
 		//on update chaque block dans la matrice
-		for (int y = level.getTailleMapY() -1; y > 0; y--)
+		for (int y = this.model.getTailleMapY() -1; y > 0; y--)
 		{
-			for (int x = 0; x < level.getTailleMapX(); x++)
+			for (int x = 0; x < this.model.getTailleMapX(); x++)
 			{
-				blockAUpdate = level.getBlock(x, y);
+				blockAUpdate = this.model.getBlock(x, y);
 				if (!alreadyMoved[x][y]) {
 
 
 					// FALL Section
-					if (blockAUpdate instanceof Fallable && y < level.getTailleMapY() - 1) {
-						if (level.getBlock(x, y + 1) instanceof BackgroundDirt) {
-							level.moveBlock(Direction.DOWN, x, y);
+					if (blockAUpdate instanceof Fallable && y < this.model.getTailleMapY() - 1) {
+						if (this.model.getBlock(x, y + 1) instanceof BackgroundDirt) {
+							this.model.moveBlock(Direction.DOWN, x, y);
 							alreadyMoved[x][y + 1] = true;
 						}
-						else if (level.getBlock(x, y + 1) instanceof Ennemy) {
-							level.moveBlock(Direction.DOWN, x, y);
+						else if (this.model.getBlock(x, y + 1) instanceof Ennemy) {
+							this.model.moveBlock(Direction.DOWN, x, y);
 							alreadyMoved[x][y + 1] = true;
 						}
-						else if (level.getBlock(x, y + 1) instanceof Fallable && level.getBlock(x + 1, y) instanceof BackgroundDirt && level.getBlock(x + 1, y + 1) instanceof BackgroundDirt ) {
-							level.moveBlock(Direction.RIGHT, x, y);
+						else if (this.model.getBlock(x, y + 1) instanceof Fallable
+								&& this.model.getBlock(x + 1, y) instanceof BackgroundDirt
+								&& this.model.getBlock(x + 1, y + 1) instanceof BackgroundDirt ) {
+							this.model.moveBlock(Direction.RIGHT, x, y);
 							alreadyMoved[x+1][y] = true;
 						}
-						else if (level.getBlock(x, y + 1) instanceof Fallable && level.getBlock(x - 1, y) instanceof BackgroundDirt && level.getBlock(x - 1, y + 1) instanceof BackgroundDirt ) {
-							level.moveBlock(Direction.LEFT, x, y);
+						else if (this.model.getBlock(x, y + 1) instanceof Fallable
+								&& this.model.getBlock(x - 1, y) instanceof BackgroundDirt
+								&& this.model.getBlock(x - 1, y + 1) instanceof BackgroundDirt ) {
+							this.model.moveBlock(Direction.LEFT, x, y);
 							alreadyMoved[x-1][y] = true;
 						}
 
 					//Ennemy section
-					} else if (blockAUpdate instanceof Ennemy && y < level.getTailleMapY() - 1) {
-						if (level.getBlock(x + 1, y) instanceof BackgroundDirt) {
-							level.moveBlock(Direction.RIGHT, x, y);
+					} else if (blockAUpdate instanceof Ennemy && y < this.model.getTailleMapY() - 1) {
+						if (this.model.getBlock(x + 1, y) instanceof BackgroundDirt) {
+							this.model.moveBlock(Direction.RIGHT, x, y);
 							alreadyMoved[x + 1][y] = true;
-						} else if (level.getBlock(x, y - 1) instanceof BackgroundDirt) {
-							level.moveBlock(Direction.UP, x, y);
+						} else if (this.model.getBlock(x, y - 1) instanceof BackgroundDirt) {
+							this.model.moveBlock(Direction.UP, x, y);
 							alreadyMoved[x][y - 1] = true;
-						} else if (level.getBlock(x - 1, y) instanceof BackgroundDirt) {
-							level.moveBlock(Direction.LEFT, x, y);
+						} else if (this.model.getBlock(x - 1, y) instanceof BackgroundDirt) {
+							this.model.moveBlock(Direction.LEFT, x, y);
 							alreadyMoved[x - 1][y] = true;
-						} else if (level.getBlock(x, y + 1) instanceof BackgroundDirt) {
-							level.moveBlock(Direction.DOWN, x, y);
+						} else if (this.model.getBlock(x, y + 1) instanceof BackgroundDirt) {
+							this.model.moveBlock(Direction.DOWN, x, y);
 							alreadyMoved[x][y + 1] = true;
 						}
 					}
@@ -111,11 +115,11 @@ public final class Controller implements IController  {
 
 		}
 		//On update chaque block a la position demandée
-		for (int y = 0; y < level.getTailleMapY(); y++) {
-			for (int x = 0; x < level.getTailleMapX(); x++) {
-				if (level.getBlock(x, y) != null)
+		for (int y = 0; y < this.model.getTailleMapY(); y++) {
+			for (int x = 0; x < this.model.getTailleMapX(); x++) {
+				if (this.model.getBlock(x, y) != null)
 				{
-					level.getBlock(x, y).update(x, y);
+					this.model.getBlock(x, y).update(x, y);
 				}
 			}
 		}
@@ -152,44 +156,83 @@ public final class Controller implements IController  {
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
-	/*	switch (controllerOrder) {
-			case Up:
-				this.model.loadHelloWorld("GB");
-				break;
-			case Down:
-				this.model.loadHelloWorld("FR");
-				break;
-			case Left:
-				this.model.loadHelloWorld("DE");
-				break;
-			case Right:
-				this.model.loadHelloWorld("ID");
-				break;
-			default:
-				break;
+		int playerX = this.model.getPlayerX();
+		int playerY = this.model.getPlayerY();
+		Block p = this.model.getBlock(playerX, playerY);
+		//All tests for player's moves
+		if (p instanceof Player) {
+			Player player = (Player) p;
+			if (!player.isMooving()) {
+				switch (controllerOrder) {
+					case Up:
+						Block upCase = this.model.getBlock(playerX, playerY - 1);
+						if (upCase instanceof Dirt || upCase instanceof BackgroundDirt || upCase instanceof Diamond) {
+							this.model.moveBlock(Direction.UP, playerX, playerY);
+							this.model.setPlayerPos(playerX, playerY - 1);
+							if (upCase instanceof Diamond) {
+								points++;
+							}
+						}
+						break;
+					case Down:
+						Block downCase = this.model.getBlock(playerX, playerY + 1);
+						if (downCase instanceof Dirt || downCase instanceof BackgroundDirt || downCase instanceof Diamond) {
+							this.model.moveBlock(Direction.DOWN, playerX, playerY);
+							this.model.setPlayerPos(playerX, playerY + 1);
+							if (downCase instanceof Diamond) {
+								points++;
+							}
+						}
+						break;
+					case Left:
+						Block leftCase = this.model.getBlock(playerX - 1, playerY);
+						if (leftCase instanceof Dirt || leftCase instanceof BackgroundDirt || leftCase instanceof Diamond) {
+							this.model.moveBlock(Direction.LEFT, playerX, playerY);
+							this.model.setPlayerPos(playerX - 1, playerY);
+							if (leftCase instanceof Diamond) {
+								points++;
+							}
+						} else if (leftCase instanceof Stone) {
+							Block leftStoneCase = this.model.getBlock(playerX - 2, playerY);
+							if (leftStoneCase instanceof BackgroundDirt) {
+								//We move the player and the stone
+								this.model.moveBlock(Direction.LEFT, playerX - 1, playerY);
+								this.model.moveBlock(Direction.LEFT, playerX, playerY);
+								this.model.setPlayerPos(playerX - 1, playerY);
+							}
+						}
+						break;
+					case Right:
+						Block rightCase = this.model.getBlock(playerX + 1, playerY);
+						if (rightCase instanceof Dirt || rightCase instanceof BackgroundDirt || rightCase instanceof Diamond) {
+							this.model.moveBlock(Direction.RIGHT, playerX, playerY);
+							this.model.setPlayerPos(playerX + 1, playerY);
+							if (rightCase instanceof Diamond) {
+								points++;
+							}
+						} else if (rightCase instanceof Stone) {
+							Block rightStoneCase = this.model.getBlock(playerX + 2, playerY);
+							if (rightStoneCase instanceof BackgroundDirt) {
+								//We move the player and the stone
+								this.model.moveBlock(Direction.RIGHT, playerX + 1, playerY);
+								this.model.moveBlock(Direction.RIGHT, playerX, playerY);
+								this.model.setPlayerPos(playerX + 1, playerY);
+							}
+						}
+						break;
+					default:
+						break;
+				}
+			}
+		}
 
-	 */
-
-		/*
-			public void orderPerform(final ControllerOrder controllerOrder) {
+		//all others
 		switch (controllerOrder) {
-			case Up:
-				this.model.moveChar("UP");
-				break;
-			case Down:
-				this.model.moveChar("DOWN");
-				break;
-			case Left:
-				this.model.moveChar("LEFT");
-				break;
-			case Right:
-				this.model.moveChar("RIGHT");
-				break;
 			default:
 				break;
 		}
-		 */
 	}
+
 
 	public static Level loadLevel(final int niv) {
 		Level level = null;

@@ -27,6 +27,11 @@ public interface IModel {
 	int getTailleMapX();
 
 	int getTailleMapY();
+	void setPlayerX(int playerX);
+	void setPlayerY(int playerY);
+	int getPlayerY();
+	int getPlayerX();
+	void setPlayerPos(int playerX, int playerY);
 
 
 	void setChanged();

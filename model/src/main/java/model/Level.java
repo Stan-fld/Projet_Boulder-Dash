@@ -32,7 +32,31 @@ public class Level extends Observable implements IModel {
     private int tailleMapX;
     private int tailleMapY;
 
+    public int getPlayerX() {
+        return playerX;
+    }
+
+    public void setPlayerX(int playerX) {
+        this.playerX = playerX;
+    }
+
     private int playerX;
+
+    public int getPlayerY() {
+        return playerY;
+    }
+
+    public void setPlayerY(int playerY) {
+        this.playerY = playerY;
+    }
+
+    public void setPlayerPos(int playerX, int playerY)
+    {
+        this.setPlayerX(playerX);
+        this.setPlayerY(playerY);
+        ((Player)this.getBlock(playerX, playerY)).setMooving(true);
+    }
+
     private int playerY;
 
     /**
@@ -69,6 +93,8 @@ public class Level extends Observable implements IModel {
                 case 'P':
                     //personnage
                     map[x][y] = new Player(x, y);
+                    this.playerX = x;
+                    this.playerY = y;
                     break;
                 case 'S':
                     map[x][y] = new Stone(x, y);

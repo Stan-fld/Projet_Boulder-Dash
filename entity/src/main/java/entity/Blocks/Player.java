@@ -18,6 +18,7 @@ public class Player extends AnimatedBlock {
     private static final int[] START_ROW = {0, 1, 2, 3, 4};
     private static final int[] ANIMATION_COLS = {2, 3, 4, 3, 4};
     private static final int[] ANIMATION_ROWS = {1, 1, 1, 1, 1};
+    boolean mooving = false;
 
     PlayerState state = PlayerState.STATIC;
 
@@ -60,33 +61,38 @@ public class Player extends AnimatedBlock {
     @Override
     public void update(int objectiveX, int objectiveY) {
         PlayerState oldState = this.state;
-
+        System.out.println("x :" + objectiveX + "y : " + objectiveY );
         this.backgroudBlock.update(objectiveX, objectiveY);
 
-        if (objectiveX == this.getX() && objectiveY == this.getY())
+        if (objectiveX * 16 == this.getX() && objectiveY * 16 == this.getY())
         {
             this.state = PlayerState.STATIC;
-
+            this.mooving = false;
         }
-        else if (objectiveX > this.getX() && objectiveY == this.getY())
+        else if (objectiveX * 16 > this.getX() && objectiveY * 16 == this.getY())
         {
             this.state = PlayerState.RIGHT;
-            objectiveX = (int) this.getX() + 1;
+            this.setLocation((int) this.getX() + 2, (int) this.getY());
+            this.mooving = true;
         }
-        else if (objectiveX < this.getX() && objectiveY == this.getY())
+        else if (objectiveX * 16 < this.getX() && objectiveY * 16 == this.getY())
         {
             this.state = PlayerState.LEFT;
-            objectiveX = (int) this.getX() - 1;
+            this.setLocation((int) this.getX() - 2, (int) this.getY());
+            this.mooving = true;
+
         }
-        else if (objectiveY > this.getY() && objectiveX == this.getX())
+        else if (objectiveY * 16 > this.getY() && objectiveX * 16 == this.getX())
         {
             this.state = PlayerState.DOWN;
-            objectiveY = (int) this.getY() + 1;
+            this.setLocation((int) this.getX(), (int) this.getY() + 2);
+            this.mooving = true;
         }
-        else if (objectiveY < this.getY() && objectiveX == this.getX())
+        else if (objectiveY * 16 < this.getY() && objectiveX * 16 == this.getX())
         {
             this.state = PlayerState.UP;
-            objectiveY = (int) this.getY() - 1;
+            this.setLocation((int) this.getX(), (int) this.getY() - 2);
+            this.mooving = true;
         }
 
         if (oldState != this.state) {
@@ -97,7 +103,16 @@ public class Player extends AnimatedBlock {
 
 
         this.updateAnimationCol();
-        super.update(objectiveX, objectiveY);
+    }
+
+    public boolean isMooving()
+    {
+        return this.mooving;
+    }
+
+    public void setMooving(boolean mooving)
+    {
+        this.mooving = mooving;
     }
 
     @Override

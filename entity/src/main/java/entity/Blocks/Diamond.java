@@ -1,6 +1,5 @@
 package entity.Blocks;
 
-import entity.Blocks.AnimatedBlock;
 import entity.asset.AssetBlocks;
 
 /**
@@ -10,8 +9,7 @@ import entity.asset.AssetBlocks;
  * @author Valentin
  */
 
-public class Diamond extends Fallable
-{
+public class Diamond extends Fallable {
     private static final int ANIMATION_COL = 1;
     private static final int ANIMATION_ROWS = 4;
     private static final int START_COL = 4;
