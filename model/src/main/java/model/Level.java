@@ -185,14 +185,25 @@ public class Level extends Observable implements IModel {
 
     public void print(Graphics g)
     {
+
+        Block player = null;
+        Block blockToPrint;
         for (int y = 0; y < tailleMapY; y++)
         {
             for (int x = 0; x < tailleMapX; x++)
             {
-                if (map[x][y] != null) {
-                    map[x][y].print(g);
+                blockToPrint = map[x][y];
+                if (blockToPrint instanceof Player)
+                {
+                    player = blockToPrint;
+                }
+                else if (blockToPrint != null) {
+                    blockToPrint.print(g);
                 }
             }
+        }
+        if (player != null) {
+            player.print(g);
         }
     }
 

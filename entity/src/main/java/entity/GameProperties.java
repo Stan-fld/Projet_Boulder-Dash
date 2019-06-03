@@ -36,6 +36,17 @@ public class GameProperties extends Properties {
 	private int framerate;
 	private int animationSpeed;
 
+	public int getDisplacementSpeed() {
+		return displacementSpeed;
+	}
+
+	public void setDisplacementSpeed(int displacementSpeed) {
+		this.displacementSpeed = displacementSpeed;
+	}
+
+	private int displacementSpeed;
+
+
 	/**
 	 * <p>Getter for the field <code>blockScale</code>.</p>
 	 *
@@ -88,6 +99,7 @@ public class GameProperties extends Properties {
 			this.setBlockScale(Integer.parseInt(this.getProperty("blockScale")));
 			this.setTailleMapX(Integer.parseInt(this.getProperty("tailleMapX")));
 			this.setTailleMapY(Integer.parseInt(this.getProperty("tailleMapY")));
+			this.setDisplacementSpeed(Integer.parseInt(this.getProperty("displacementSpeed")));
 
 		}
 	}

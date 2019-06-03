@@ -6,6 +6,7 @@ import contract.IModel;
 import contract.IView;
 import entity.Blocks.*;
 import entity.Direction;
+import entity.GameProperties;
 import model.DAOLevel;
 import model.DBConnection;
 import model.Level;
@@ -31,6 +32,10 @@ public final class Controller implements IController  {
 
 	private int points = 0;
 
+	private int displacementTick = 0;
+
+	private int displacementSpeed = 0;
+
 	/**
 	 * Instantiates a new controller.
 	 *
@@ -42,6 +47,7 @@ public final class Controller implements IController  {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+		this.displacementSpeed = GameProperties.getInstance().getDisplacementSpeed();
 	}
 
 	/**
@@ -54,64 +60,58 @@ public final class Controller implements IController  {
 	 */
 	public void control() {
 		//IModel this.model = this.model;
-		boolean alreadyMoved[][] = new boolean[this.model.getTailleMapX()][this.model.getTailleMapY()];
+		boolean[][] alreadyMoved = new boolean[this.model.getTailleMapX()][this.model.getTailleMapY()];
 
 		Block blockAUpdate;
 
+		this.displacementTick++;
+		if (this.displacementTick >= displacementSpeed) {
+			displacementTick = 0;
+			//on update chaque block dans la matrice
+			for (int y = this.model.getTailleMapY() - 1; y > 0; y--) {
+				for (int x = 0; x < this.model.getTailleMapX(); x++) {
+					blockAUpdate = this.model.getBlock(x, y);
+					if (!alreadyMoved[x][y]) {
+						// FALL Section
+						if (blockAUpdate instanceof Fallable && y < this.model.getTailleMapY() - 1) {
+							if (this.model.getBlock(x, y + 1) instanceof BackgroundDirt) {
+								this.model.moveBlock(Direction.DOWN, x, y);
+								alreadyMoved[x][y + 1] = true;
+							} else if (this.model.getBlock(x, y + 1) instanceof Ennemy) {
+								this.model.moveBlock(Direction.DOWN, x, y);
+								alreadyMoved[x][y + 1] = true;
+							} else if (this.model.getBlock(x, y + 1) instanceof Fallable
+									&& this.model.getBlock(x + 1, y) instanceof BackgroundDirt
+									&& this.model.getBlock(x + 1, y + 1) instanceof BackgroundDirt) {
+								this.model.moveBlock(Direction.RIGHT, x, y);
+								alreadyMoved[x + 1][y] = true;
+							} else if (this.model.getBlock(x, y + 1) instanceof Fallable
+									&& this.model.getBlock(x - 1, y) instanceof BackgroundDirt
+									&& this.model.getBlock(x - 1, y + 1) instanceof BackgroundDirt) {
+								this.model.moveBlock(Direction.LEFT, x, y);
+								alreadyMoved[x - 1][y] = true;
+							}
 
-		//on update chaque block dans la matrice
-		for (int y = this.model.getTailleMapY() -1; y > 0; y--)
-		{
-			for (int x = 0; x < this.model.getTailleMapX(); x++)
-			{
-				blockAUpdate = this.model.getBlock(x, y);
-				if (!alreadyMoved[x][y]) {
-
-
-					// FALL Section
-					if (blockAUpdate instanceof Fallable && y < this.model.getTailleMapY() - 1) {
-						if (this.model.getBlock(x, y + 1) instanceof BackgroundDirt) {
-							this.model.moveBlock(Direction.DOWN, x, y);
-							alreadyMoved[x][y + 1] = true;
-						}
-						else if (this.model.getBlock(x, y + 1) instanceof Ennemy) {
-							this.model.moveBlock(Direction.DOWN, x, y);
-							alreadyMoved[x][y + 1] = true;
-						}
-						else if (this.model.getBlock(x, y + 1) instanceof Fallable
-								&& this.model.getBlock(x + 1, y) instanceof BackgroundDirt
-								&& this.model.getBlock(x + 1, y + 1) instanceof BackgroundDirt ) {
-							this.model.moveBlock(Direction.RIGHT, x, y);
-							alreadyMoved[x+1][y] = true;
-						}
-						else if (this.model.getBlock(x, y + 1) instanceof Fallable
-								&& this.model.getBlock(x - 1, y) instanceof BackgroundDirt
-								&& this.model.getBlock(x - 1, y + 1) instanceof BackgroundDirt ) {
-							this.model.moveBlock(Direction.LEFT, x, y);
-							alreadyMoved[x-1][y] = true;
-						}
-
-					//Ennemy section
-					} else if (blockAUpdate instanceof Ennemy && y < this.model.getTailleMapY() - 1) {
-						if (this.model.getBlock(x + 1, y) instanceof BackgroundDirt) {
-							this.model.moveBlock(Direction.RIGHT, x, y);
-							alreadyMoved[x + 1][y] = true;
-						} else if (this.model.getBlock(x, y - 1) instanceof BackgroundDirt) {
-							this.model.moveBlock(Direction.UP, x, y);
-							alreadyMoved[x][y - 1] = true;
-						} else if (this.model.getBlock(x - 1, y) instanceof BackgroundDirt) {
-							this.model.moveBlock(Direction.LEFT, x, y);
-							alreadyMoved[x - 1][y] = true;
-						} else if (this.model.getBlock(x, y + 1) instanceof BackgroundDirt) {
-							this.model.moveBlock(Direction.DOWN, x, y);
-							alreadyMoved[x][y + 1] = true;
+							//Ennemy section
+						} else if (blockAUpdate instanceof Ennemy && y < this.model.getTailleMapY() - 1) {
+							if (this.model.getBlock(x + 1, y) instanceof BackgroundDirt) {
+								this.model.moveBlock(Direction.RIGHT, x, y);
+								alreadyMoved[x + 1][y] = true;
+							} else if (this.model.getBlock(x, y - 1) instanceof BackgroundDirt) {
+								this.model.moveBlock(Direction.UP, x, y);
+								alreadyMoved[x][y - 1] = true;
+							} else if (this.model.getBlock(x - 1, y) instanceof BackgroundDirt) {
+								this.model.moveBlock(Direction.LEFT, x, y);
+								alreadyMoved[x - 1][y] = true;
+							} else if (this.model.getBlock(x, y + 1) instanceof BackgroundDirt) {
+								this.model.moveBlock(Direction.DOWN, x, y);
+								alreadyMoved[x][y + 1] = true;
+							}
 						}
 					}
 				}
 
 			}
-			this.model.setChanged();
-			this.model.getObservable().notifyObservers();
 
 		}
 		//On update chaque block a la position demandée
@@ -123,6 +123,8 @@ public final class Controller implements IController  {
 				}
 			}
 		}
+		this.model.setChanged();
+		this.model.getObservable().notifyObservers();
 	}
 
 	/**
