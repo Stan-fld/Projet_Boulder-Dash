@@ -13,7 +13,7 @@ public interface IController {
 	/**
 	 * Control.
 	 */
-	public void control();
+	void control();
 
 	/**
 	 * Order perform.
@@ -21,7 +21,12 @@ public interface IController {
 	 * @param controllerOrder
 	 *          the controller order
 	 */
-	public void orderPerform(ControllerOrder controllerOrder);
+	void orderPerform(ControllerOrder controllerOrder);
 
+	/**
+	 * <p>getScore.</p>
+	 *
+	 * @return a {@link entity.Score} object.
+	 */
 	Score getScore();
 }

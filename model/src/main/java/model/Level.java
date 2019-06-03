@@ -10,20 +10,33 @@ import java.util.Observable;
 
 /**
  * The Level class
+ * It's a model that contain a map which describes the actual game state
  *
  * @author Kevin
+ * @version $Id: $Id
  */
 public class Level extends Observable implements IModel {
     private Block[][] map;
 
+    /**
+     * <p>Getter for the field <code>tailleMapX</code>.</p>
+     *
+     * @return a int.
+     */
     public int getTailleMapX() {
         return tailleMapX;
     }
 
+    /**
+     * <p>Getter for the field <code>tailleMapY</code>.</p>
+     *
+     * @return a int.
+     */
     public int getTailleMapY() {
         return tailleMapY;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void setChanged() {
         super.setChanged();
@@ -32,24 +45,37 @@ public class Level extends Observable implements IModel {
     private int tailleMapX;
     private int tailleMapY;
 
+    /**
+     * <p>Getter for the field <code>playerX</code>.</p>
+     *
+     * @return a int.
+     */
     public int getPlayerX() {
         return playerX;
     }
 
+    /** {@inheritDoc} */
     public void setPlayerX(int playerX) {
         this.playerX = playerX;
     }
 
     private int playerX;
 
+    /**
+     * <p>Getter for the field <code>playerY</code>.</p>
+     *
+     * @return a int.
+     */
     public int getPlayerY() {
         return playerY;
     }
 
+    /** {@inheritDoc} */
     public void setPlayerY(int playerY) {
         this.playerY = playerY;
     }
 
+    /** {@inheritDoc} */
     public void setPlayerPos(int playerX, int playerY)
     {
         this.setPlayerX(playerX);
@@ -61,7 +87,6 @@ public class Level extends Observable implements IModel {
 
     /**
      * The Level default constructor
-     *
      */
     public Level()
     {
@@ -130,7 +155,6 @@ public class Level extends Observable implements IModel {
      *
      * It initializes the map
      */
-
     private void init()
     {
         GameProperties properties = GameProperties.getInstance();
@@ -141,7 +165,11 @@ public class Level extends Observable implements IModel {
 
     }
 
-    //va faire bouger un block sans condition
+    /**
+     * {@inheritDoc}
+     *
+     * makes a block move without condition
+     */
     public void moveBlock(Direction direction, int blockX, int blockY)
     {
         Block blockADeplacer = map[blockX][blockY];
@@ -173,11 +201,13 @@ public class Level extends Observable implements IModel {
 
 
     //retourne le block a la position donnée
+    /** {@inheritDoc} */
     public Block getBlock(int x, int y)
     {
         return map[x][y];
     }
 
+    /** {@inheritDoc} */
     public void print(Graphics g)
     {
 
@@ -203,6 +233,11 @@ public class Level extends Observable implements IModel {
     }
 
 
+    /**
+     * <p>getObservable.</p>
+     *
+     * @return a {@link java.util.Observable} object.
+     */
     public Observable getObservable() {
         return this;
     }

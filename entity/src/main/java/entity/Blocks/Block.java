@@ -82,6 +82,11 @@ public abstract class Block extends Rectangle{
         this.setImage(img);
     }
 
+    /**
+     * <p>Getter for the field <code>blockScale</code>.</p>
+     *
+     * @return a int.
+     */
     public static int getBlockScale() {
         return blockScale;
     }
@@ -119,7 +124,7 @@ public abstract class Block extends Rectangle{
 
     /**
      * <p>print.</p>
-     *
+     * Prints itself on the {@link java.awt.Graphics} objet
      * @param g a {@link java.awt.Graphics} object.
      */
     public void print(Graphics g)
@@ -131,6 +136,9 @@ public abstract class Block extends Rectangle{
 
     /**
      * <p>update.</p>
+     * moves the Block to the objective position
+     * @param objectiveX a int.
+     * @param objectiveY a int.
      */
     public void update(int objectiveX, int objectiveY) {
         this.setLocation(objectiveX * sizeX, objectiveY * sizeY);

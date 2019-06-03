@@ -11,6 +11,7 @@ import java.awt.image.BufferedImage;
  * <p>Player class.</p>
  *
  * @author kevin
+ * @version $Id: $Id
  */
 public class Player extends AnimatedBlock {
     BufferedImage[] imgTab;
@@ -27,6 +28,9 @@ public class Player extends AnimatedBlock {
 
     /**
      * <p>Constructor for Player.</p>
+     *
+     * @param x a int.
+     * @param y a int.
      */
     public Player(int x, int y)
     {
@@ -58,6 +62,11 @@ public class Player extends AnimatedBlock {
         backgroudBlock = new BackgroundDirt(x, y);
     }
 
+    /**
+     *  The player's update makes the player move pixel by pixel to have the same impression than the original boulder dash game
+     * @see AnimatedBlock#update(int, int)
+     *
+     */
     @Override
     public void update(int objectiveX, int objectiveY) {
         PlayerState oldState = this.state;
@@ -104,16 +113,27 @@ public class Player extends AnimatedBlock {
         this.updateAnimationCol();
     }
 
+    /**
+     * <p>isMooving.</p>
+     *
+     * @return a boolean.
+     */
     public boolean isMooving()
     {
         return this.mooving;
     }
 
+    /**
+     * <p>Setter for the field <code>mooving</code>.</p>
+     *
+     * @param mooving a boolean.
+     */
     public void setMooving(boolean mooving)
     {
         this.mooving = mooving;
     }
 
+    /** {@inheritDoc} */
     @Override
     public void print(Graphics g) {
         this.backgroudBlock.print(g);

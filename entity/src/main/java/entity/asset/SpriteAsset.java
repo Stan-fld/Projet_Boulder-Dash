@@ -14,9 +14,11 @@ import java.io.IOException;
  * The class SpriteAsset
  *
  * @author Valentin
+ * @version $Id: $Id
  */
 public class SpriteAsset {
 
+    /** Constant <code>sizeY</code> */
     /** Constant <code>sizeY</code> */
     public static int sizeX, sizeY;
     private BufferedImage img;
@@ -69,6 +71,11 @@ public class SpriteAsset {
         return getSprite(x, y, 1, 1);
     }
 
+    /**
+     * <p>makeTransparent.</p>
+     * makes the color key transparent on the {@link SpriteAsset}
+     * @param colorMask a {@link java.awt.Color} object.
+     */
     public void makeTransparent(Color colorMask)
     {
         int width = this.img.getWidth();

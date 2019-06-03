@@ -6,6 +6,7 @@ import entity.asset.AssetBlocks;
  * <p>Stone class.</p>
  *
  * @author kevin
+ * @version $Id: $Id
  */
 public class Stone extends Fallable{
     private static final int ANIMATION_COL = 1;

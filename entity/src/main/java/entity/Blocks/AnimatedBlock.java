@@ -12,10 +12,20 @@ import java.awt.image.BufferedImage;
  * @version $Id: $Id
  */
 public abstract class AnimatedBlock extends Block{
+    /**
+     * <p>Getter for the field <code>maxRow</code>.</p>
+     *
+     * @return a int.
+     */
     public int getMaxRow() {
         return maxRow;
     }
 
+    /**
+     * <p>Setter for the field <code>maxRow</code>.</p>
+     *
+     * @param maxRow a int.
+     */
     public void setMaxRow(int maxRow) {
         if (this.maxRow != maxRow) {
             this.maxRow = maxRow;
@@ -23,10 +33,20 @@ public abstract class AnimatedBlock extends Block{
         }
     }
 
+    /**
+     * <p>Getter for the field <code>maxCol</code>.</p>
+     *
+     * @return a int.
+     */
     public int getMaxCol() {
         return maxCol;
     }
 
+    /**
+     * <p>Setter for the field <code>maxCol</code>.</p>
+     *
+     * @param maxCol a int.
+     */
     public void setMaxCol(int maxCol) {
         if (this.maxCol != maxCol) {
             this.maxCol = maxCol;
@@ -114,6 +134,8 @@ public abstract class AnimatedBlock extends Block{
 
     /**
      * <p>Constructor for AnimatedBlock.</p>
+     * default contructor for a block initialized at (0, 0) point
+     * and without animation
      */
     protected AnimatedBlock()
     {
@@ -141,9 +163,9 @@ public abstract class AnimatedBlock extends Block{
      *
      * @param x a int.
      * @param y a int.
-     * @param img a {@link java.awt.image.BufferedImage} object.
-     * @param maxCol a int.
-     * @param maxRow a int.
+     * @param img a {@link java.awt.image.BufferedImage} object, containing all the sprites in rows or columns.
+     * @param maxCol number of animation columns.
+     * @param maxRow number of animation rows.
      */
     public AnimatedBlock(int x, int y, BufferedImage img, int maxCol, int maxRow)
     {
@@ -164,6 +186,7 @@ public abstract class AnimatedBlock extends Block{
 
     /**
      * <p>updateAnimationCol.</p>
+     * updates the Column animation
      */
     public void updateAnimationCol()
     {
@@ -177,6 +200,7 @@ public abstract class AnimatedBlock extends Block{
 
     /**
      * <p>updateAnimationRow.</p>
+     * updates the Row animation
      */
     public void updateAnimationRow()
     {
@@ -196,6 +220,12 @@ public abstract class AnimatedBlock extends Block{
                 getSizeX() * getBlockScale(), getSizeY() * getBlockScale(),null);
     }
 
+    /**
+     *
+     * {@inheritDoc}
+     *
+     * And updates the animation
+     * */
     @Override
     public void update(int objectiveX, int objectiveY) {
         super.update(objectiveX, objectiveY);

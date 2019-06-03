@@ -9,9 +9,9 @@ import entity.Entity;
  * The Class DAOEntity.
  *
  * @author Jean-Aymeric Diet
- *
  * @param <E>
  *          the element type
+ * @version $Id: $Id
  */
 public abstract class DAOEntity <E>{
 

@@ -2,11 +2,12 @@ package entity.Blocks;
 
 import entity.asset.AssetBlocks;
 
-/**
- * The ennemy class
- *
- * @author Valentin
- */
+    /**
+     * The ennemy class
+     *
+     * @author Valentin
+     * @version $Id: $Id
+     */
     public class Ennemy extends AnimatedBlock
     {
         private static final int ANIMATION_COL = 1;
@@ -17,8 +18,8 @@ import entity.asset.AssetBlocks;
         /**
          * The ennemy constructor
          *
-         * @param x
-         * @param y
+         * @param x a int.
+         * @param y a int.
          */
         public Ennemy(int x, int y) {
             super(x, y, AssetBlocks.getInstance().getSprite(START_COL, START_ROW, ANIMATION_COL, ANIMATION_ROWS)

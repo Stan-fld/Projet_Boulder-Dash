@@ -7,9 +7,10 @@ import java.util.Properties;
 
 /**
  * The Class GameProperties.
+ * permit to get different properties in the model.properties file
  *
  * @author Kevin
- *
+ * @version $Id: $Id
  */
 public class GameProperties extends Properties {
 
@@ -36,10 +37,20 @@ public class GameProperties extends Properties {
 	private int framerate;
 	private int animationSpeed;
 
+	/**
+	 * <p>Getter for the field <code>displacementSpeed</code>.</p>
+	 *
+	 * @return a int.
+	 */
 	public int getDisplacementSpeed() {
 		return displacementSpeed;
 	}
 
+	/**
+	 * <p>Setter for the field <code>displacementSpeed</code>.</p>
+	 *
+	 * @param displacementSpeed a int.
+	 */
 	public void setDisplacementSpeed(int displacementSpeed) {
 		this.displacementSpeed = displacementSpeed;
 	}
@@ -108,7 +119,7 @@ public class GameProperties extends Properties {
 	/**
 	 * <p>getInstance.</p>
 	 *
-	 * @return a {@link GameProperties} object.
+	 * @return a {@link entity.GameProperties} object.
 	 */
 	public static GameProperties getInstance() {
         return INSTANCE;

@@ -16,6 +16,7 @@ import java.util.TreeMap;
  * The Class Main.
  *
  * @author Jean-Aymeric Diet
+ * @version $Id: $Id
  */
 public abstract class Main {
 

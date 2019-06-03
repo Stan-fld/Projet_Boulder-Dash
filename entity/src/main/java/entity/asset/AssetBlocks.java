@@ -5,9 +5,10 @@ import java.awt.*;
 /**
  * The class AssetBlocks
  *
- * It is a singleton which contains blocks
+ * It is a singleton which contains all blocks assets
  *
  * @author Kevin
+ * @version $Id: $Id
  */
 public class AssetBlocks extends SpriteAsset {
 
@@ -16,7 +17,7 @@ public class AssetBlocks extends SpriteAsset {
     /**
      * <p>getInstance.</p>
      *
-     * @return a {@link AssetBlocks} object.
+     * @return a {@link entity.asset.AssetBlocks} object.
      */
     public static AssetBlocks getInstance() {
         return ourInstance;

@@ -12,7 +12,9 @@ import entity.GameProperties;
 /**
  * The Class Model.
  * ######OBSOLETE
+ *
  * @author Valentin
+ * @version $Id: $Id
  */
 public final class Model extends Observable /*implements IModel*/ {
 
@@ -56,6 +58,8 @@ public final class Model extends Observable /*implements IModel*/ {
 	 * {@inheritDoc}
 	 *
 	 * Load the level
+	 *
+	 * @param niv a int.
 	 */
 	/*
 	 * (non-Javadoc)
@@ -73,7 +77,11 @@ public final class Model extends Observable /*implements IModel*/ {
 
 	}
 
-	/** {@inheritDoc} */
+	/**
+	 * {@inheritDoc}
+	 *
+	 * @param g a {@link java.awt.Graphics} object.
+	 */
 	public void print(Graphics g)
 	{
 		level.print(g);

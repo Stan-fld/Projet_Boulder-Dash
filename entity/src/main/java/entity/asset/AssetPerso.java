@@ -5,6 +5,7 @@ import java.awt.*;
 /**
  * The AssetPerso class
  *
+ * It is a singleton which contains all player assets
  * @author Kevin
  * @version $Id: $Id
  */
@@ -17,7 +18,7 @@ public class AssetPerso extends SpriteAsset {
     /**
      * <p>getInstance.</p>
      *
-     * @return a {@link AssetPerso} object.
+     * @return a {@link entity.asset.AssetPerso} object.
      */
     public static AssetPerso getInstance() {
         return ourInstance;
@@ -31,7 +32,7 @@ public class AssetPerso extends SpriteAsset {
     {
         super("D:\\Dev\\Java\\Projet_Boulder-Dash\\model\\src\\main\\resources\\assets\\Perso.png");
 
-        //On rend le fond transparent par rapport a une couleur
+        //we make the background transparent
         makeTransparent(new Color(107, 109, 0));
 
     }

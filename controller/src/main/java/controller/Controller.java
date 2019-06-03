@@ -59,6 +59,7 @@ public final class Controller implements IController  {
 
 	/**
 	 * Control.
+	 * makes the different model blocks physics and updates them to their new position
 	 */
 	/*
 	 * (non-Javadoc)
@@ -131,6 +132,7 @@ public final class Controller implements IController  {
 			}
 		}
 		this.model.setChanged();
+
 		this.model.getObservable().notifyObservers();
 	}
 
@@ -243,6 +245,12 @@ public final class Controller implements IController  {
 	}
 
 
+	/**
+	 * <p>loadLevel.</p>
+	 *
+	 * @param niv a int.
+	 * @return a {@link model.Level} object.
+	 */
 	public static Level loadLevel(final int niv) {
             Level level = null;
             try {
@@ -256,6 +264,11 @@ public final class Controller implements IController  {
 
 	}
 
+	/**
+	 * <p>Getter for the field <code>score</code>.</p>
+	 *
+	 * @return a {@link entity.Score} object.
+	 */
 	public Score getScore() {
 		return score;
 	}

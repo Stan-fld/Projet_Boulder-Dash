@@ -12,8 +12,8 @@ import java.sql.SQLException;
  * It returns the result from the database into a level object
  *
  * @author Valentin
+ * @version $Id: $Id
  */
-
 public class DAOLevel extends DAOEntity<Level>
 {
 
@@ -21,22 +21,25 @@ public class DAOLevel extends DAOEntity<Level>
      * Instantiates a new DAO entity.
      *
      * @param connection the connection
-     * @throws SQLException the SQL exception
+     * @throws java.sql.SQLException the SQL exception
      */
     public DAOLevel(Connection connection) throws SQLException {
         super(connection);
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean create(Level entity) {
         return false;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean delete(Level entity) {
         return false;
     }
 
+    /** {@inheritDoc} */
     @Override
     public boolean update(Level entity) {
         return false;
@@ -44,12 +47,11 @@ public class DAOLevel extends DAOEntity<Level>
 
 
     /**
+     * {@inheritDoc}
+     *
      * The find method
      *
      * It will communicates with the DAO by calling the LevelSelect procedure
-     * @param id
-     *          the id
-     * @return
      */
     public Level find(final int id) {
         Level level = new Level();

@@ -5,10 +5,9 @@ import entity.asset.AssetBlocks;
 /**
  * The dirt class
  *
- *
  * @author Valentin
+ * @version $Id: $Id
  */
-
 public class Dirt extends Block
 {
 
@@ -16,10 +15,10 @@ public class Dirt extends Block
     private static final int START_ROW = 0;
 
     /**
+     * <p>Constructor for Dirt.</p>
      *
-     *
-     * @param x
-     * @param y
+     * @param x a int.
+     * @param y a int.
      */
     public Dirt(int x, int y)
     {
