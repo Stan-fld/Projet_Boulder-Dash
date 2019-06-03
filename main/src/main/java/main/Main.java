@@ -7,7 +7,6 @@ package main;
 import contract.IModel;
 import controller.Controller;
 import entity.GameProperties;
-import model.Model;
 import view.View;
 
 import java.util.TreeMap;

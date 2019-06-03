@@ -13,6 +13,7 @@ import entity.GameProperties;
  * The Class Model.
  * ######OBSOLETE
  *
+ * @deprecated
  * @author Valentin
  * @version $Id: $Id
  */

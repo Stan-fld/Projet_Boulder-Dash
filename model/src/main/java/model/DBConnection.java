@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 /**
  * The Class DBConnection.
+ * Permit the connection to a database
  *
  * @author Jean-Aymeric Diet
  * @version $Id: $Id

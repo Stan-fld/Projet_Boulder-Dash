@@ -19,10 +19,7 @@ public class Score extends Rectangle {
         return score;
     }
 
-    /**
-     * setScore
-     * @param score
-     */
+
     public void setScore(int score) {
         this.score = score;
     }
