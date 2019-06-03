@@ -1,4 +1,4 @@
-package entity.asset;
+package entity.Blocks;
 
 import org.junit.After;
 import org.junit.Before;
@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class SpriteAssetTest {
+public class PlayerTest {
 
     @Before
     public void setUp() throws Exception {
@@ -17,14 +17,18 @@ public class SpriteAssetTest {
     }
 
     @Test
-    public void getSprite() {
+    public void update() {
     }
 
     @Test
-    public void getSprite1() {
+    public void isMooving() {
     }
 
     @Test
-    public void makeTransparent() {
+    public void setMooving() {
+    }
+
+    @Test
+    public void print() {
     }
 }

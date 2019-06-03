@@ -1,4 +1,4 @@
-package entity;
+package entity.Blocks;
 
 import org.junit.After;
 import org.junit.Before;
@@ -22,6 +22,10 @@ public class BlockTest {
 
     @Test
     public void getSizeY() {
+    }
+
+    @Test
+    public void getBlockScale() {
     }
 
     @Test

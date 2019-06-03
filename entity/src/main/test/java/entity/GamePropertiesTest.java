@@ -17,6 +17,14 @@ public class GamePropertiesTest {
     }
 
     @Test
+    public void getDisplacementSpeed() {
+    }
+
+    @Test
+    public void setDisplacementSpeed() {
+    }
+
+    @Test
     public void getBlockScale() {
     }
 
