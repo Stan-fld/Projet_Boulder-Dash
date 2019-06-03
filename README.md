@@ -1,3 +1,5 @@
-# JPU-BlankProject
+# Cesi boulder dash project
 
-Base de démarrage pour le projet Jave/POO/UML des 1ières années Exia-Cesi
+Java/UML project for Cesi school
+
+The project goal is to remake the old boulder dash game with Java
