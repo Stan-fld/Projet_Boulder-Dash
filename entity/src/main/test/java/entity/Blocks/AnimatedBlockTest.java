@@ -1,4 +1,4 @@
-package entity;
+package entity.Blocks;
 
 import org.junit.After;
 import org.junit.Before;
@@ -14,6 +14,22 @@ public class AnimatedBlockTest {
 
     @After
     public void tearDown() throws Exception {
+    }
+
+    @Test
+    public void getMaxRow() {
+    }
+
+    @Test
+    public void setMaxRow() {
+    }
+
+    @Test
+    public void getMaxCol() {
+    }
+
+    @Test
+    public void setMaxCol() {
     }
 
     @Test
@@ -50,5 +66,9 @@ public class AnimatedBlockTest {
 
     @Test
     public void print() {
+    }
+
+    @Test
+    public void update() {
     }
 }
