@@ -17,12 +17,18 @@ public class ControllerTest {
     }
 
     @Test
-    public void control()
-    {
-
+    public void control() {
     }
 
     @Test
     public void orderPerform() {
+    }
+
+    @Test
+    public void loadLevel() {
+    }
+
+    @Test
+    public void getScore() {
     }
 }
