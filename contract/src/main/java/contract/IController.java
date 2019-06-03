@@ -1,5 +1,7 @@
 package contract;
 
+import entity.Score;
+
 /**
  * The Interface IController.
  *
@@ -20,4 +22,6 @@ public interface IController {
 	 *          the controller order
 	 */
 	public void orderPerform(ControllerOrder controllerOrder);
+
+	Score getScore();
 }

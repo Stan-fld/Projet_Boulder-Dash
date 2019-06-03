@@ -172,11 +172,6 @@ public class Level extends Observable implements IModel {
     }
 
 
-    public void update()
-    {
-
-    }
-
     //retourne le block a la position donnée
     public Block getBlock(int x, int y)
     {

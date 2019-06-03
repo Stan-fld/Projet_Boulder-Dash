@@ -17,6 +17,7 @@ class ViewPanel extends JPanel implements Observer {
 	private ViewFrame					viewFrame;
 	/** The Constant serialVersionUID. */
 	private static final long	serialVersionUID	= -998294702363713521L;
+	private int points;
 
 	/**
 	 * Instantiates a new view panel.
@@ -69,5 +70,7 @@ class ViewPanel extends JPanel implements Observer {
 		graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
 		//graphics.drawString(this.getViewFrame().getModel().getHelloWorld().getMessage(), 10, 20);
 		this.getViewFrame().getModel().print(graphics);
+		this.getViewFrame().getController().getScore().print(graphics);
 	}
+
 }

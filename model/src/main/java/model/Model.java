@@ -3,9 +3,11 @@ package model;
 import java.awt.*;
 import java.sql.SQLException;
 import java.util.Observable;
+import java.io.*;
 
 import contract.IModel;
 import entity.GameProperties;
+
 
 /**
  * The Class Model.
@@ -67,6 +69,8 @@ public final class Model extends Observable /*implements IModel*/ {
 		} catch (final SQLException e) {
 			e.printStackTrace();
 		}
+
+
 	}
 
 	/** {@inheritDoc} */

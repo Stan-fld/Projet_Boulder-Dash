@@ -45,7 +45,7 @@ public final class DBConnection {
 	private Boolean open() {
 		final GameProperties gameProperties = GameProperties.getInstance();
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.jdbc.Driver"); //Ca va servir à instancier une classe en question
 			this.connection = DriverManager.getConnection(gameProperties.getUrl(), gameProperties.getLogin(), gameProperties.getPassword());
 		} catch (final ClassNotFoundException e) {
 			e.printStackTrace();

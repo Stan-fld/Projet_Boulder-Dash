@@ -7,10 +7,16 @@ import contract.IView;
 import entity.Blocks.*;
 import entity.Direction;
 import entity.GameProperties;
+import entity.Score;
 import model.DAOLevel;
 import model.DBConnection;
 import model.Level;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.sql.SQLException;
 
 /**
@@ -30,7 +36,7 @@ public final class Controller implements IController  {
 	private Level level;
 
 
-	private int points = 0;
+	private Score score;
 
 	private int displacementTick = 0;
 
@@ -47,6 +53,7 @@ public final class Controller implements IController  {
 	public Controller(final IView view, final IModel model) {
 		this.setView(view);
 		this.setModel(model);
+		this.score = new Score();
 		this.displacementSpeed = GameProperties.getInstance().getDisplacementSpeed();
 	}
 
@@ -172,7 +179,7 @@ public final class Controller implements IController  {
 							this.model.moveBlock(Direction.UP, playerX, playerY);
 							this.model.setPlayerPos(playerX, playerY - 1);
 							if (upCase instanceof Diamond) {
-								points++;
+								this.score.incrementScore();
 							}
 						}
 						break;
@@ -182,7 +189,7 @@ public final class Controller implements IController  {
 							this.model.moveBlock(Direction.DOWN, playerX, playerY);
 							this.model.setPlayerPos(playerX, playerY + 1);
 							if (downCase instanceof Diamond) {
-								points++;
+								this.score.incrementScore();
 							}
 						}
 						break;
@@ -192,7 +199,7 @@ public final class Controller implements IController  {
 							this.model.moveBlock(Direction.LEFT, playerX, playerY);
 							this.model.setPlayerPos(playerX - 1, playerY);
 							if (leftCase instanceof Diamond) {
-								points++;
+								this.score.incrementScore();
 							}
 						} else if (leftCase instanceof Stone) {
 							Block leftStoneCase = this.model.getBlock(playerX - 2, playerY);
@@ -210,7 +217,7 @@ public final class Controller implements IController  {
 							this.model.moveBlock(Direction.RIGHT, playerX, playerY);
 							this.model.setPlayerPos(playerX + 1, playerY);
 							if (rightCase instanceof Diamond) {
-								points++;
+								this.score.incrementScore();
 							}
 						} else if (rightCase instanceof Stone) {
 							Block rightStoneCase = this.model.getBlock(playerX + 2, playerY);
@@ -237,14 +244,19 @@ public final class Controller implements IController  {
 
 
 	public static Level loadLevel(final int niv) {
-		Level level = null;
-		try {
-			final DAOLevel daoLevel = new DAOLevel(DBConnection.getInstance().getConnection());
-			level = daoLevel.find(niv);
-		} catch (final SQLException e) {
-			e.printStackTrace();
-		}
+            Level level = null;
+            try {
+                final DAOLevel daoLevel = new DAOLevel(DBConnection.getInstance().getConnection());
+                level = daoLevel.find(niv);
+            } catch (final SQLException e) {
+                e.printStackTrace();
+            }
+
 		return level;
+
 	}
 
+	public Score getScore() {
+		return score;
+	}
 }
