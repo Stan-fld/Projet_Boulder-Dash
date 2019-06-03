@@ -4,11 +4,10 @@ package entity;
 import java.awt.*;
 
 /**
- * <p>Score class.</p>
+ * Score class
  * permit to print the score on the screen
  *
- * @author kevin
- * @version $Id: $Id
+ * @author Valentin
  */
 public class Score extends Rectangle {
     /**
@@ -21,18 +20,20 @@ public class Score extends Rectangle {
     }
 
     /**
-     * <p>Setter for the field <code>score</code>.</p>
-     *
-     * @param score a int.
+     * setScore
+     * @param score
      */
     public void setScore(int score) {
         this.score = score;
     }
 
+    /**
+     * Score
+     */
     private int score;
 
     /**
-     * <p>Constructor for Score.</p>
+     * Score constructor
      */
     public Score() {
         super(5,5,64, 32);
@@ -40,14 +41,15 @@ public class Score extends Rectangle {
     }
 
     /**
-     * <p>incrementScore.</p>
+     * incrementScore method
+     *
      */
     public void incrementScore() {
         this.score++;
     }
 
     /**
-     * <p>print.</p>
+     * print method
      *
      * @param g a {@link java.awt.Graphics} object.
      */
